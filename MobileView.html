@@ -71,6 +71,13 @@
       background: #007aff;
     }
 
+     /* extra */
+    .bottom-panel-4 {
+      background: #007aff;
+      display: none;
+      transition: transform 0.3s ease, margin-bottom 0.3s ease;
+    }
+
     /* Controls */
 
     .game-area {
@@ -91,6 +98,7 @@
       gap: 2px;
       background: #222;
       padding: 4px;
+      transition: transform 0.3s ease, margin-bottom 0.3s ease;
     }
 
     .tile {
@@ -160,37 +168,52 @@
       <div class="game-area">
         <div class="board" id="board"></div>
       </div>
-    
-      <div class="panel bottom-panel-1">Practice played FRIT for 14 points</div>
+
+      <div class="panel bottom-panel-1" id="bottom-panel-1">Practice played FRIT for 14 points</div>
       <button id="fix-view-btn">Fix View</button>
       <div class="panel bottom-panel-2">[ T ][ D ][ K ][ N ][ A ][ A ][ I ]</div>
       <div class="panel bottom-panel-3">More | Pass | PLAY | Swap | Shuffle</div>
+      <div class="panel bottom-panel-4" id="bottom-panel-4"></div>
     </div>
   </div>
 
   <script>
     const fixBtn = document.getElementById("fix-view-btn");
-    const bottomPanel = document.querySelector(".bottom-panel-3");
+    const bottomPanel4 = document.querySelector('#bottom-panel-4');
 
     let isFixed = false;
 
     fixBtn.addEventListener("click", () => {
       isFixed = !isFixed;
 
+      const board = document.querySelector('.board');
+
       if (isFixed) {
         fixBtn.textContent = "Undo Fix";
-        bottomPanel.style.height = "40px";
-        bottomPanel.style.fontSize = "0.8rem";
-        bottomPanel.style.padding = "0 6px";
+
+        const boardRect = board.getBoundingClientRect();
+        const shiftAmount = boardRect.height * 0.05; // 5% of board height
+
+        board.style.transform = `scale(0.90) translateY(-${shiftAmount}px)`;
+        board.style.transformOrigin = "center";
+        bottomPanel4.style.display = "flex";
+  
+
       } else {
         fixBtn.textContent = "Fix View";
-        bottomPanel.style.height = "50px";
-        bottomPanel.style.fontSize = "1rem";
-        bottomPanel.style.padding = "0 10px";
+
+        board.style.transform = "scale(1)";
+        board.style.transformOrigin = "";
+        // Hide the 4th panel again
+        bottomPanel4.style.display = "none";
       }
 
       updateScale();
     });
+
+
+
+
     function updateScale() {
       const baseWidth = 561;
       const screenWidth = window.innerWidth;
