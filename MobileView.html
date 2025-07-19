@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -33,15 +34,44 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
-    .top-bar, .bottom-bar {
-      height: 60px;
-      background-color: #0066cc;
-      color: white;
+    .panel {
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      color: white;
+      font-size: 1rem;
+      box-sizing: border-box;
     }
+
+    .top-panel-1 {
+      background: #111;
+      font-weight: bold;
+    }
+
+    /* Game Logo bar */
+    .top-panel-2 {
+      background: #007aff;
+    }
+
+    /* Player info */
+    .bottom-panel-1 {
+      background: #2a84d2;
+      font-style: italic;
+    }
+
+    /* Status message */
+    .bottom-panel-2 {
+      background: #f4a742;
+      color: black;
+    }
+
+    /* Rack */
+    .bottom-panel-3 {
+      background: #007aff;
+    }
+
+    /* Controls */
 
     .game-area {
       flex: 1;
@@ -76,47 +106,67 @@
       text-transform: uppercase;
     }
 
-    .TW { background: #f44336; }
-    .DW { background: #ffc107; color: #000; }
-    .TL { background: #2196f3; }
-    .DL { background: #9e9e9e; }
+    .TW {
+      background: #f44336;
+    }
+
+    .DW {
+      background: #ffc107;
+      color: #000;
+    }
+
+    .TL {
+      background: #2196f3;
+    }
+
+    .DL {
+      background: #9e9e9e;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="scale-wrapper" id="scale-wrapper">
     <div class="game-frame">
-      <div class="top-bar">🟨 Words Game</div>
+
+      <div class="panel top-panel-1">WORDS with Friends 2</div>
+      <div class="panel top-panel-2">Player Info Panel</div>
+
       <div class="game-area">
         <div class="board" id="board"></div>
       </div>
-      <div class="bottom-bar">🔠 Rack & Controls</div>
+
+      <div class="panel bottom-panel-1">Practice played FRIT for 14 points</div>
+      <div class="panel bottom-panel-2">[ T ][ D ][ K ][ N ][ A ][ A ][ I ]</div>
+      <div class="panel bottom-panel-3">More | Pass | PLAY | Swap | Shuffle</div>
+
     </div>
   </div>
 
   <script>
     function updateScale() {
-  const baseWidth = 561;
-  const baseHeight = window.innerHeight; // use full height by default
-  const gameHeight = 1000; // estimated design height in pixels (change if needed)
+      const baseWidth = 561;
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
+      const gameFrame = document.querySelector('.game-frame');
+      const gameHeight = gameFrame.scrollHeight;
 
-  const widthScale = screenWidth / baseWidth;
-  const heightScale = screenHeight / gameHeight;
+      const widthScale = screenWidth / baseWidth;
+      const heightScale = screenHeight / gameHeight;
 
-  const minScale = 166 / baseWidth;
-  const scale = Math.max(minScale, Math.min(widthScale, heightScale, 1));
+      const minScale = 166 / baseWidth;
+      const scale = Math.max(minScale, Math.min(widthScale, heightScale, 1));
 
-  const wrapper = document.getElementById('scale-wrapper');
-  wrapper.style.transform = `scale(${scale})`;
+      const wrapper = document.getElementById('scale-wrapper');
+      wrapper.style.transform = `scale(${scale})`;
 
-  const offsetX = (screenWidth - baseWidth * scale) / 2;
-  const offsetY = (screenHeight - gameHeight * scale) / 2;
-  wrapper.style.left = `${offsetX}px`;
-  wrapper.style.top = `${offsetY}px`;
-}
+      // ✅ Anchor to top-left always
+      wrapper.style.left = `0px`;
+      wrapper.style.top = `0px`;
+    }
+
 
     const boardData = [
       ['TW', '', '', 'DL', '', '', '', 'TW', '', '', '', 'DL', '', '', 'TW'],
@@ -138,10 +188,10 @@
 
     const board = document.getElementById("board");
 
-    boardData.forEach((row, r) => {
-      row.forEach((cell, c) => {
+    boardData.forEach(row => {
+      row.forEach(cell => {
         const tile = document.createElement("div");
-        tile.className = "tile " + cell;
+        tile.className = "tile " + (cell || "");
         tile.textContent = cell || '';
         board.appendChild(tile);
       });
@@ -152,4 +202,5 @@
   </script>
 
 </body>
+
 </html>
