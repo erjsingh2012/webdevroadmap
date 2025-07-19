@@ -21,8 +21,8 @@
     .scale-wrapper {
       width: 561px;
       height: 100vh;
-      transform-origin: top left;
-      position: absolute;
+      transform-origin: top center;
+      position: relative;
     }
 
     .game-frame {
@@ -161,10 +161,8 @@
 
       const wrapper = document.getElementById('scale-wrapper');
       wrapper.style.transform = `scale(${scale})`;
-
-      // ✅ Anchor to top-left always
-      wrapper.style.left = `0px`;
-      wrapper.style.top = `0px`;
+      wrapper.style.left = '';
+      wrapper.style.top = '';
     }
 
 
