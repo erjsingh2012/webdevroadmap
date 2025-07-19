@@ -1,0 +1,63 @@
+<style>
+  .board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    aspect-ratio: 1 / 1;
+    max-width: 540px;
+    margin: auto;
+    gap: 2px;
+    background: #222;
+    padding: 4px;
+  }
+
+  .tile {
+    background: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    aspect-ratio: 1 / 1;
+    user-select: none;
+  }
+
+  .TW { background: #f44336; } /* Red */
+  .DW { background: #ffc107; } /* Amber */
+  .TL { background: #2196f3; } /* Blue */
+  .DL { background: #9e9e9e; } /* Gray */
+</style>
+
+<div class="board" id="board"></div>
+
+<script>
+  const boardData = [
+    // 15 rows of 15 cells each, use 'TW', 'DW', 'TL', 'DL', or '' for normal
+    ['TW', '', '', 'DL', '', '', '', 'TW', '', '', '', 'DL', '', '', 'TW'],
+    ['', 'DW', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'DW', ''],
+    ['', '', 'DW', '', '', '', 'DL', '', 'DL', '', '', '', 'DW', '', ''],
+    ['DL', '', '', 'DW', '', '', '', 'DL', '', '', '', 'DW', '', '', 'DL'],
+    ['', '', '', '', 'DW', '', '', '', '', '', 'DW', '', '', '', ''],
+    ['', 'TL', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'TL', ''],
+    ['', '', 'DL', '', '', '', 'DL', '', 'DL', '', '', '', 'DL', '', ''],
+    ['TW', '', '', 'DL', '', '', '', '★', '', '', '', 'DL', '', '', 'TW'],
+    ['', '', 'DL', '', '', '', 'DL', '', 'DL', '', '', '', 'DL', '', ''],
+    ['', 'TL', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'TL', ''],
+    ['', '', '', '', 'DW', '', '', '', '', '', 'DW', '', '', '', ''],
+    ['DL', '', '', 'DW', '', '', '', 'DL', '', '', '', 'DW', '', '', 'DL'],
+    ['', '', 'DW', '', '', '', 'DL', '', 'DL', '', '', '', 'DW', '', ''],
+    ['', 'DW', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'DW', ''],
+    ['TW', '', '', 'DL', '', '', '', 'TW', '', '', '', 'DL', '', '', 'TW'],
+  ];
+
+  const board = document.getElementById("board");
+
+  boardData.forEach(row => {
+    row.forEach(cell => {
+      const tile = document.createElement("div");
+      tile.className = "tile " + cell;
+      tile.textContent = cell || '';
+      board.appendChild(tile);
+    });
+  });
+</script>
