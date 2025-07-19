@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #1e4d9b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    .scale-wrapper {
+      width: 561px;
+      height: 100vh;
+      transform-origin: top left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .game-frame {
+      width: 561px;
+      height: 100vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .top-bar, .bottom-bar {
+      height: 60px;
+      background-color: #0066cc;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .game-area {
+      flex: 1;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scale-wrapper" id="scale-wrapper">
+    <div class="game-frame">
+      <div class="top-bar">WWF UI (Smart Scaled)</div>
+      <div class="game-area">📱 Game Board Area</div>
+      <div class="bottom-bar">🎯 Rack + Controls</div>
+    </div>
+  </div>
+
+  <script>
+    function updateScale() {
+      const baseWidth = 561;
+      const minScale = 166 / baseWidth; // ≈ 0.296
+      const screenWidth = window.innerWidth;
+
+      // Compute scaling factor clamped between minScale and 1
+      const scale = Math.max(minScale, Math.min(1, screenWidth / baseWidth));
+
+      const wrapper = document.getElementById('scale-wrapper');
+      wrapper.style.transform = `scale(${scale})`;
+
+      // Horizontally center the scaled content
+      const offsetX = (screenWidth - baseWidth * scale) / 2;
+      wrapper.style.position = 'absolute';
+      wrapper.style.left = `${offsetX}px`;
+    }
+
+    window.addEventListener('resize', updateScale);
+    window.addEventListener('load', updateScale);
+  </script>
+
+</body>
+</html>

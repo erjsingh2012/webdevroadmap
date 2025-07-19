@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Words With Friends Mock</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #0055a5;
+      color: white;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: #003f7d;
+    }
+
+    .player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .player-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .score {
+      font-size: 18px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(15, 28px);
+      gap: 2px;
+      justify-content: center;
+      padding: 16px;
+      background: #ccc;
+    }
+
+    .tile {
+      width: 28px;
+      height: 28px;
+      background: white;
+      text-align: center;
+      line-height: 28px;
+      font-weight: bold;
+      color: black;
+      border-radius: 4px;
+    }
+
+    .tile-letter {
+      background: #f9d460;
+    }
+
+    .rack {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      background: #eee;
+      padding: 12px;
+    }
+
+    .rack-tile {
+      width: 40px;
+      height: 40px;
+      background: #f9d460;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      border-radius: 6px;
+    }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+      background: #003f7d;
+    }
+
+    .btn {
+      padding: 8px 12px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="player">
+      <span class="player-name">Jatinderpal</span>
+      <span class="score">18</span>
+    </div>
+    <div class="player">
+      <span class="player-name">Holly</span>
+      <span class="score">35</span>
+    </div>
+  </div>
+
+  <!-- Game Board -->
+  <div class="board">
+    <!-- Generate 15x15 board -->
+    <!-- Sample word: MOVE -->
+    <!-- You can add more tiles as needed -->
+    <div class="tile">T</div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+
+    <!-- Add 15 rows manually for simplicity -->
+    <!-- You can also generate using JS if needed -->
+    <!-- Fill the rest with blank tiles -->
+    <!-- You can mark special tiles like TW, DL etc. using CSS classes -->
+    <!-- Add more .tile-letter where letters are present -->
+    <!-- For brevity, only a few are shown -->
+    <!-- Rest can be repeated blank .tile divs -->
+    <!-- Real game logic can be plugged in dynamically -->
+  </div>
+
+  <!-- Rack -->
+  <div class="rack">
+    <button class="btn">Pass</button>
+    <div class="rack-tile">E</div>
+    <div class="rack-tile">E</div>
+    <div class="rack-tile">I</div>
+    <div class="rack-tile">D</div>
+    <div class="rack-tile">S</div>
+    <div class="rack-tile">E</div>
+    <div class="rack-tile">U</div>
+      <button class="btn">Play</button>
+  </div>
+
+  <!-- Bottom Action Bar -->
+  <div class="bottom-bar">
+    <button class="btn">More</button>
+    <button class="btn">Swap</button>
+    <button class="btn">Shuffle</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Words With Friends - Instant Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+    }
+
+    #wwf-orientation-lock {
+      background: #ffdfba;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #s5-preload {
+      background: #d1c4e9;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #wwf-locale-chooser {
+      background: #ffe0b2;
+      padding: 10px;
+    }
+
+    #wwf-banners-area {
+      background: #c8e6c9;
+      padding: 10px;
+    }
+
+    #wwf-fallback-banner {
+      background: #a5d6a7;
+      padding: 5px;
+      text-align: center;
+    }
+
+    #wwf-app-wrapper {
+      background: #bbdefb;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #wwf-extras {
+      background: #e1bee7;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    #s5-deploy {
+      background: #f8bbd0;
+      padding: 10px;
+    }
+
+    #s5-partials {
+      background: #cfd8dc;
+      padding: 10px;
+    }
+
+    #wwf-speed-mult {
+      background: #ffcdd2;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .wwf-rays {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      border: 2px solid #ccc;
+    }
+
+    #semiBlack {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+
+    #animationsContainer {
+      background: #fff59d;
+      padding: 10px;
+    }
+
+    h2 {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body class="instant wwf-loading">
+
+  <div id="wwf-orientation-lock">
+    <h2>Orientation Lock</h2>
+  </div>
+
+  <div id="s5-preload" class="bg_stripe logo">
+    <h2>Preload Stripe</h2>
+  </div>
+
+  <div id="wwf-locale-chooser">
+    <h2>Locale Chooser</h2>
+  </div>
+
+  <div id="wwf-banners-area">
+    <h2>Banner Area</h2>
+    <div id="wwf-fallback-banner">Fallback Banner</div>
+  </div>
+
+  <div id="wwf-app-wrapper">
+    <h2>Game Board / App Wrapper</h2>
+    <!-- Game grid and rack will go here -->
+  </div>
+
+  <div id="wwf-extras">
+    <h2>Extras (Ad slots, etc.)</h2>
+  </div>
+
+  <!-- s5.Deployer -->
+  <div id="s5-deploy">
+    <h2>Deploy Scripts / Dynamic Components</h2>
+  </div>
+
+  <div id="s5-partials">
+    <h2>Partials / Template Sections</h2>
+  </div>
+
+  <script src="class/gen/libs/protobuf.linked.js"></script>
+  <script src="class/gen/App.linked.js" initiator="wwf.onAppJSLoaded();"></script>
+
+  <div id="wwf-speed-mult">
+    <h2>Speed Multiplier / Game Speed Effects</h2>
+  </div>
+
+  <img id="wwf-rays-blue" class="wwf-rays" src="asset/img/BlueBackground.png" alt="Blue Background" />
+  <img id="wwf-rays-purple" class="wwf-rays" src="asset/img/PurpleBackground.png" alt="Purple Background" />
+
+  <div id="semiBlack">
+    <h2>Overlay Layer</h2>
+  </div>
+
+  <div id="animationsContainer">
+    <h2>Animation Container</h2>
+  </div>
+
+</body>
+</html>

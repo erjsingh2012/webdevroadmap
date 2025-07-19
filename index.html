@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Browser Events Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .play-button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .play-button:hover {
+      background: #1976d2;
+    }
+    .log-wrapper {
+      width: 100%;
+      max-width: 600px;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .log {
+      background: #111;
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
+      height: 300px;
+      overflow-y: auto;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Browser Lifecycle Events Tracker</h1>
+
+  <button class="play-button" id="playBtn">▶️ Play</button>
+
+  <div class="log-wrapper">
+    <div class="label">Event Logs:</div>
+    <div id="log" class="log"></div>
+  </div>
+
+  <script>
+    let count = 0;
+
+    const log = (msg) => {
+      const el = document.getElementById("log");
+      const time = new Date().toLocaleTimeString();
+      el.innerHTML += `[${time}] count ${count} ${msg}<br>`;
+      el.scrollTop = el.scrollHeight;
+    };
+
+    // Event listeners
+    document.addEventListener("readystatechange", () => {
+      count++;
+      log(`readystatechange: ${document.readyState}`);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      count++;
+      log("DOMContentLoaded");
+
+      const box = document.createElement("div");
+      box.textContent = "🌟 DOM is Ready!";
+      box.style = "margin: 10px 0; padding: 10px; background: #4caf50; color: #fff; border-radius: 5px;";
+      document.body.insertBefore(box, document.querySelector('.log-wrapper'));
+    });
+
+    window.addEventListener("load", () => {
+      count++;
+      log("window.load - Everything is fully loaded");
+    });
+
+    window.addEventListener("beforeunload", () => {
+      count++;
+      log("beforeunload - Leaving the page");
+    });
+
+    window.addEventListener("unload", () => {
+      count++;
+      console.log("unload - Page is unloading");
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      count++;
+      log(`visibilitychange: document.visibilityState = ${document.visibilityState}`);
+    });
+
+    // Play button handler
+    document.getElementById("playBtn").addEventListener("click", () => {
+      count++;
+      log("Play button clicked 🎮");
+      alert("Game or animation can start here!");
+    });
+  </script>
+</body>
+</html>

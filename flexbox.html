@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flexbox Mastery</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      color: #333;
+    }
+
+    section {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 1200px;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+    }
+
+    .flex-row {
+      display: flex;
+      background: #f7f7f7;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .box {
+      flex: 1;
+      background: #3498db;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    /* 🧠 Flex Grow / Shrink / Basis */
+    .grow-demo .box:nth-child(1) {
+      flex: 2;
+      background: #e74c3c;
+    }
+    .grow-demo .box:nth-child(2) {
+      flex: 1;
+      background: #2ecc71;
+    }
+
+    /* 💡 Direction Row vs Column */
+    .column-layout {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .column-layout .box {
+      margin-bottom: 1rem;
+    }
+
+    /* 🔀 Wrap example */
+    .wrap-example {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .wrap-example .box {
+      flex: 1 1 200px;
+    }
+
+    /* 🧭 Justify Content */
+    .justify-demo {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 📐 Align Items */
+    .align-demo {
+      display: flex;
+      align-items: center;
+      height: 150px;
+    }
+
+    .align-demo .box {
+      height: 50px;
+    }
+
+    /* 🎯 Centering */
+    .centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background: #8e44ad;
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* 📱 Responsive Stacking */
+    @media (max-width: 768px) {
+      .flex-row, .justify-demo, .align-demo, .wrap-example {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center; padding-top:1rem;">💯 Flexbox Mastery Playground</h1>
+
+  <!-- 🔹 Grow/Shrink/Basis -->
+  <section class="grow-demo">
+    <h2>1️⃣ Flex Grow, Shrink, Basis</h2>
+    <div class="flex-row">
+      <div class="box">Grow 2</div>
+      <div class="box">Grow 1</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Direction -->
+  <section>
+    <h2>2️⃣ Flex Direction: Column</h2>
+    <div class="column-layout">
+      <div class="box" style="background:#1abc9c;">Item A</div>
+      <div class="box" style="background:#2ecc71;">Item B</div>
+      <div class="box" style="background:#f39c12;">Item C</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Wrap -->
+  <section>
+    <h2>3️⃣ Wrapping Boxes</h2>
+    <div class="wrap-example">
+      <div class="box">Wrap 1</div>
+      <div class="box">Wrap 2</div>
+      <div class="box">Wrap 3</div>
+      <div class="box">Wrap 4</div>
+      <div class="box">Wrap 5</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Justify Content -->
+  <section>
+    <h2>4️⃣ Justify Content: space-between</h2>
+    <div class="justify-demo">
+      <div class="box" style="background:#16a085;">Start</div>
+      <div class="box" style="background:#2980b9;">Middle</div>
+      <div class="box" style="background:#c0392b;">End</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Align Items -->
+  <section>
+    <h2>5️⃣ Align Items: Center</h2>
+    <div class="align-demo">
+      <div class="box" style="background:#34495e;">Box A</div>
+      <div class="box" style="background:#9b59b6; height: 100px;">Box B (Tall)</div>
+      <div class="box" style="background:#27ae60;">Box C</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Center Both Ways -->
+  <section>
+    <h2>6️⃣ Centered Box</h2>
+    <div class="centered">
+      Perfectly Centered
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Words With Friends - Welcome</title>
+  <style>
+    @keyframes afade {
+      0%   { opacity: 0; }
+      10%  { opacity: 0; }
+      30%  { opacity: 1; }
+      40%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    body {
+      background: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #instant-preload_message > div {
+      width: 68vw;
+      text-align: center;
+      font-size: 9vw;
+      position: absolute;
+      left: 16vw;
+      top: 30vh;
+      color: white;
+      opacity: 0;
+      animation: afade 36s infinite ease-in-out;
+    }
+
+    /* Apply staggered delays */
+    #instant-preload_message > div:nth-child(1) { animation-delay: 0s; }
+    #instant-preload_message > div:nth-child(2) { animation-delay: 6s; }
+    #instant-preload_message > div:nth-child(3) { animation-delay: 12s; }
+    #instant-preload_message > div:nth-child(4) { animation-delay: 18s; }
+    #instant-preload_message > div:nth-child(5) { animation-delay: 24s; }
+    #instant-preload_message > div:nth-child(6) { animation-delay: 30s; }
+  </style>
+</head>
+<body>
+  <div id="s5-preload">
+    <div id="instant-preload_message">
+      <div>Welcome to Words With Friends!</div>
+      <div>Bienvenue dans Mots entre amis !</div>
+      <div>Willkommen zu Wortspaß mit Freunden!</div>
+      <div>¡Te damos la bienvenida a Palabras con amigos!</div>
+      <div>Ti diamo il benvenuto a Parole tra amici!</div>
+      <div>Boas-vindas ao Palavras com Amigos!</div>
+    </div>
+    <div class="font_preload" style="font-family: museo700">.</div>
+  </div>
+</body>
+</html>

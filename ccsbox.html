@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Flex Bob Boxes</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    /* 🔘 Buttons Layout */
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    /* 📦 Boxes Container using Flex */
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 📦 Individual Box */
+    .box {
+      flex: 1 1 120px;
+      max-width: 140px;
+      height: 100px;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      animation: bob 1.5s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hide logic */
+    .hidden {
+      display: none;
+    }
+
+    /* 🎨 Box Colors */
+    .box1  { background: #2196f3; }
+    .box2  { background: #f44336; }
+    .box3  { background: #4caf50; }
+    .box4  { background: #ff9800; color: black; }
+    .box5  { background: #9c27b0; }
+    .box6  { background: #00bcd4; }
+    .box7  { background: #e91e63; }
+    .box8  { background: #607d8b; }
+    .box9  { background: #3f51b5; }
+    .box10 { background: #8bc34a; }
+
+    /* 🕺 Bob animation */
+    @keyframes bob {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .box {
+        flex: 1 1 100px;
+        font-size: 12px;
+        height: 80px;
+        line-height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎨 Responsive Flex + Bob Animation (10 Boxes)</h2>
+
+  <!-- 🔘 Buttons to toggle each box -->
+  <div class="buttons">
+    <button onclick="toggleBox('box1')">Toggle Box 1</button>
+    <button onclick="toggleBox('box2')">Toggle Box 2</button>
+    <button onclick="toggleBox('box3')">Toggle Box 3</button>
+    <button onclick="toggleBox('box4')">Toggle Box 4</button>
+    <button onclick="toggleBox('box5')">Toggle Box 5</button>
+    <button onclick="toggleBox('box6')">Toggle Box 6</button>
+    <button onclick="toggleBox('box7')">Toggle Box 7</button>
+    <button onclick="toggleBox('box8')">Toggle Box 8</button>
+    <button onclick="toggleBox('box9')">Toggle Box 9</button>
+    <button onclick="toggleBox('box10')">Toggle Box 10</button>
+  </div>
+
+  <!-- 📦 Flexbox Box Area -->
+  <div class="box-container">
+    <div id="box1" class="box box1">Box 1</div>
+    <div id="box2" class="box box2">Box 2</div>
+    <div id="box3" class="box box3">Box 3</div>
+    <div id="box4" class="box box4">Box 4</div>
+    <div id="box5" class="box box5">Box 5</div>
+    <div id="box6" class="box box6">Box 6</div>
+    <div id="box7" class="box box7">Box 7</div>
+    <div id="box8" class="box box8">Box 8</div>
+    <div id="box9" class="box box9">Box 9</div>
+    <div id="box10" class="box box10">Box 10</div>
+  </div>
+
+  <script>
+    function toggleBox(id) {
+      const box = document.getElementById(id);
+      box.classList.toggle("hidden");
+    }
+  </script>
+
+</body>
+</html>
