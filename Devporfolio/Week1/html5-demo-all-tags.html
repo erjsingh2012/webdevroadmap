@@ -8,22 +8,54 @@
     body { font-family: system-ui, sans-serif; background: #f9f9f9; color: #222; padding: 2em; }
     h1, h2, h3 { color: #003366; }
     section { margin-bottom: 2em; border-bottom: 1px solid #ddd; padding-bottom: 1em; }
-    pre, code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
-    table { border-collapse: collapse; width: 100%; margin: 1em 0; }
-    th, td { border: 1px solid #ccc; padding: 0.5em; }
-    th { background: #f0f0f0; }
-    .demo { background: #fff; padding: 1em; border-radius: 6px; box-shadow: 0 1px 4px #0001; }
+    .toc {
+      position: sticky; top: 0; background: #fff; z-index: 10; padding: 1em 0 1em 0; margin-bottom: 2em; border-bottom: 2px solid #003366;
+    }
+    .toc ul { columns: 2; list-style: none; padding: 0; margin: 0; }
+    .toc li { margin-bottom: 0.5em; }
+    .demo-card {
+      display: flex; flex-wrap: wrap; gap: 1.5em; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 1.5em; margin-bottom: 1.5em;
+    }
+    .demo-live, .demo-code { flex: 1 1 300px; min-width: 250px; }
+    .demo-live { border-right: 1px solid #eee; padding-right: 1em; }
+    .demo-code { padding-left: 1em; }
+    pre { background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto; }
+    .note { font-size: 0.95em; color: #0077cc; margin-top: 0.5em; }
+    @media (max-width: 700px) {
+      .demo-card { flex-direction: column; }
+      .demo-live { border-right: none; border-bottom: 1px solid #eee; padding-right: 0; padding-bottom: 1em; }
+      .demo-code { padding-left: 0; }
+    }
   </style>
 </head>
 <body>
   <h1>HTML5 All Tags Demo Project</h1>
   <p>This demo showcases practical usage of all major HTML5 tags, organized by category. View source for comments and details.</p>
 
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <strong>Quick Navigation:</strong>
+    <ul>
+      <li><a href="#structure">1. Structure</a></li>
+      <li><a href="#sections">2. Document Sections</a></li>
+      <li><a href="#text">3. Text Content</a></li>
+      <li><a href="#inline">4. Inline Text & Formatting</a></li>
+      <li><a href="#lists">5. Lists</a></li>
+      <li><a href="#media">6. Links & Media</a></li>
+      <li><a href="#forms">7. Forms & Inputs</a></li>
+      <li><a href="#tables">8. Tables</a></li>
+      <li><a href="#embedded">9. Embedded Content</a></li>
+      <li><a href="#scripting">10. Scripting & Programmatic</a></li>
+    </ul>
+  </nav>
+
   <!-- 1. Structure -->
-  <section>
+  <section id="structure">
     <h2>1. Structure</h2>
-    <div class="demo">
-      <pre><code>&lt;!DOCTYPE html&gt;
+    <div class="demo-card">
+      <div class="demo-live">
+        <strong>Live Example:</strong>
+        <pre style="background:#f9f9f9;">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -34,66 +66,107 @@
     &lt;base href="https://example.com/"&gt;
   &lt;/head&gt;
   &lt;body&gt;...&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;</pre>
+      </div>
+      <div class="demo-code">
+        <strong>Best Practice:</strong>
+        <div class="note">Always set <code>lang</code> on <code>&lt;html&gt;</code> for accessibility. Use <code>&lt;meta charset="UTF-8"&gt;</code> and <code>&lt;meta name="viewport"&gt;" for responsive design.</div>
+      </div>
     </div>
   </section>
 
   <!-- 2. Document Sections -->
-  <section>
+  <section id="sections">
     <h2>2. Document Sections</h2>
-    <div class="demo">
-      <header>
-        <h1>Site Title</h1>
-        <nav>
-          <a href="#main">Main</a> | <a href="#aside">Aside</a>
-        </nav>
-      </header>
-      <main id="main">
-        <section>
-          <h2>Section Heading</h2>
-          <article>
-            <h3>Article Title</h3>
-            <p>This is an article inside a section.</p>
-          </article>
-        </section>
-      </main>
-      <aside id="aside">
-        <h4>Related</h4>
-        <p>This is an aside (sidebar) content.</p>
-      </aside>
-      <footer>
-        <address>Contact: <a href="mailto:info@example.com">info@example.com</a></address>
-        <p>&copy; 2025 Demo</p>
-      </footer>
+    <div class="demo-card">
+      <div class="demo-live">
+        <header>
+          <h1>Site Title</h1>
+          <nav>
+            <a href="#main">Main</a> | <a href="#aside">Aside</a>
+          </nav>
+        </header>
+        <main id="main">
+          <section>
+            <h2>Section Heading</h2>
+            <article>
+              <h3>Article Title</h3>
+              <p>This is an article inside a section.</p>
+            </article>
+          </section>
+        </main>
+        <aside id="aside">
+          <h4>Related</h4>
+          <p>This is an aside (sidebar) content.</p>
+        </aside>
+        <footer>
+          <address>Contact: <a href="mailto:info@example.com">info@example.com</a></address>
+          <p>&copy; 2025 Demo</p>
+        </footer>
+      </div>
+      <div class="demo-code">
+        <strong>Code:</strong>
+        <pre>&lt;header&gt;
+  &lt;h1&gt;Site Title&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;...&lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;aside&gt;...&lt;/aside&gt;
+&lt;footer&gt;
+  &lt;address&gt;...&lt;/address&gt;
+&lt;/footer&gt;</pre>
+        <div class="note">Use <code>&lt;main&gt;</code> only once per page. Use <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;nav&gt;</code> for semantic structure and accessibility.</div>
+      </div>
     </div>
   </section>
 
   <!-- 3. Text Content -->
-  <section>
+  <section id="text">
     <h2>3. Text Content</h2>
-    <div class="demo">
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-      <p>This is a paragraph. <br> This is a line break.</p>
-      <hr>
-      <pre>  Preformatted
+    <div class="demo-card">
+      <div class="demo-live">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>This is a paragraph. <br> This is a line break.</p>
+        <hr>
+        <pre>  Preformatted
     Text</pre>
-      <blockquote cite="https://developer.mozilla.org/">This is a blockquote.</blockquote>
-      <q>This is an inline quote.</q>
-      <p>Cited from <cite>Moby Dick</cite>.</p>
-      <p>Code: <code>let x = 5;</code></p>
-      <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-      <p>Highlight: <mark>important</mark></p>
-      <p>Published: <time datetime="2025-07-01">July 1, 2025</time></p>
+        <blockquote cite="https://developer.mozilla.org/">This is a blockquote.</blockquote>
+        <q>This is an inline quote.</q>
+        <p>Cited from <cite>Moby Dick</cite>.</p>
+        <p>Code: <code>let x = 5;</code></p>
+        <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+        <p>Highlight: <mark>important</mark></p>
+        <p>Published: <time datetime="2025-07-01">July 1, 2025</time></p>
+      </div>
+      <div class="demo-code">
+        <strong>Code:</strong>
+        <pre>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;br&gt;Line break.&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre&gt;Preformatted&lt;/pre&gt;
+&lt;blockquote&gt;...&lt;/blockquote&gt;
+&lt;q&gt;...&lt;/q&gt;
+&lt;cite&gt;...&lt;/cite&gt;
+&lt;code&gt;...&lt;/code&gt;
+&lt;abbr title="..."&gt;...&lt;/abbr&gt;
+&lt;mark&gt;...&lt;/mark&gt;
+&lt;time datetime="..."&gt;...&lt;/time&gt;</pre>
+        <div class="note">Use heading levels in order. Always use <code>abbr</code> with <code>title</code>. Use <code>time</code> for machine-readable dates.</div>
+      </div>
     </div>
   </section>
 
   <!-- 4. Inline Text & Formatting -->
-  <section>
+  <section id="inline">
     <h2>4. Inline Text & Formatting</h2>
     <div class="demo">
       <p><span>Span text</span>, <strong>strong</strong>, <em>emphasized</em>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, H<sub>2</sub>O, x<sup>2</sup></p>
@@ -101,7 +174,7 @@
   </section>
 
   <!-- 5. Lists -->
-  <section>
+  <section id="lists">
     <h2>5. Lists</h2>
     <div class="demo">
       <ul>
@@ -120,7 +193,7 @@
   </section>
 
   <!-- 6. Links & Media -->
-  <section>
+  <section id="media">
     <h2>6. Links & Media</h2>
     <div class="demo">
       <a href="https://developer.mozilla.org/">MDN Web Docs</a><br>
@@ -139,7 +212,7 @@
   </section>
 
   <!-- 7. Forms & Inputs -->
-  <section>
+  <section id="forms">
     <h2>7. Forms & Inputs</h2>
     <div class="demo">
       <form action="#" method="get">
@@ -166,7 +239,7 @@
   </section>
 
   <!-- 8. Tables -->
-  <section>
+  <section id="tables">
     <h2>8. Tables</h2>
     <div class="demo">
       <table>
@@ -189,7 +262,7 @@
   </section>
 
   <!-- 9. Embedded Content -->
-  <section>
+  <section id="embedded">
     <h2>9. Embedded Content</h2>
     <div class="demo">
       <iframe src="https://www.example.com" title="Example iframe" width="200" height="60"></iframe>
@@ -202,7 +275,7 @@
   </section>
 
   <!-- 10. Scripting & Programmatic -->
-  <section>
+  <section id="scripting">
     <h2>10. Scripting & Programmatic</h2>
     <div class="demo">
       <script>document.write('<span style="color:green">&lt;script&gt; tag works!</span>');</script>
