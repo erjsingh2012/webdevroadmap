@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html,
     body {
@@ -74,6 +74,15 @@
       transition: transform 0.3s ease, margin-bottom 0.3s ease;
     }
 
+    .board-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      transition: padding 0.3s ease;
+    }
+
     /* Controls */
 
     .game-area {
@@ -86,7 +95,7 @@
 
     .board {
       display: grid;
-      grid-template-columns: repeat(15, 1fr);
+      grid-template-columns: repeat(11, 1fr);
       aspect-ratio: 1 / 1;
       max-width: 500px;
       width: 100%;
@@ -158,20 +167,39 @@
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       cursor: pointer;
+      z-index: 10;
     }
+
+    .debug-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff99;
+  font-size: 12px;
+  padding: 6px 8px;
+  font-family: monospace;
+  z-index: 999;
+  white-space: pre-line;
+  pointer-events: none;
+}
   </style>
 </head>
 
 <body>
 
   <div class="scale-wrapper" id="scale-wrapper">
+    <div class="debug-panel" id="debug-panel"></div>
     <div class="game-frame">
 
       <div class="panel top-panel-1">WORDS with Friends 2</div>
       <div class="panel top-panel-2">Player Info Panel</div>
 
       <div class="game-area">
-        <div class="board" id="board"></div>
+        <div class="board-wrapper">
+          <div class="board" id="board"></div>
+        </div>
       </div>
 
       <div class="panel bottom-panel-1" id="bottom-panel-1">
@@ -220,6 +248,27 @@
     });
 
 
+    function updateDebugPanel() {
+      const debugPanel = document.getElementById("debug-panel");
+
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      const gameFrame = document.querySelector('.game-frame');
+      const board = document.querySelector('.board');
+
+      const gameRect = gameFrame.getBoundingClientRect();
+      const boardRect = board.getBoundingClientRect();
+
+      debugPanel.textContent = `
+[ Debug Info Panel ]
+📱 Screen: ${screenWidth} x ${screenHeight}
+🎮 Game Frame: ${Math.round(gameRect.width)} x ${Math.round(gameRect.height)}
+🧩 Board: ${Math.round(boardRect.width)} x ${Math.round(boardRect.height)}
+🔍 Scale: ${document.getElementById('scale-wrapper').style.transform || 'none'}
+📦 Panel 4 Visible: ${document.getElementById('bottom-panel-4').style.display}
+  `.trim();
+    }
 
 
     function updateScale() {
@@ -244,21 +293,17 @@
 
 
     const boardData = [
-      ['TW', '', '', 'DL', '', '', '', 'TW', '', '', '', 'DL', '', '', 'TW'],
-      ['', 'DW', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'DW', ''],
-      ['', '', 'DW', '', '', '', 'DL', '', 'DL', '', '', '', 'DW', '', ''],
-      ['DL', '', '', 'DW', '', '', '', 'DL', '', '', '', 'DW', '', '', 'DL'],
-      ['', '', '', '', 'DW', '', '', '', '', '', 'DW', '', '', '', ''],
-      ['', 'TL', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'TL', ''],
-      ['', '', 'DL', '', '', '', 'DL', '', 'DL', '', '', '', 'DL', '', ''],
-      ['TW', '', '', 'DL', '', '', '', '★', '', '', '', 'DL', '', '', 'TW'],
-      ['', '', 'DL', '', '', '', 'DL', '', 'DL', '', '', '', 'DL', '', ''],
-      ['', 'TL', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'TL', ''],
-      ['', '', '', '', 'DW', '', '', '', '', '', 'DW', '', '', '', ''],
-      ['DL', '', '', 'DW', '', '', '', 'DL', '', '', '', 'DW', '', '', 'DL'],
-      ['', '', 'DW', '', '', '', 'DL', '', 'DL', '', '', '', 'DW', '', ''],
-      ['', 'DW', '', '', '', 'TL', '', '', '', 'TL', '', '', '', 'DW', ''],
-      ['TW', '', '', 'DL', '', '', '', 'TW', '', '', '', 'DL', '', '', 'TW'],
+      ['TW', '', '', 'DL', '', '', 'DL', '', '', '', 'TW'],
+      ['', 'DW', '', '', '', 'TL', '', '', '', 'DW', ''],
+      ['', '', 'DW', '', '', '', '', '', 'DW', '', ''],
+      ['DL', '', '', 'DW', '', '', '', 'DW', '', '', 'DL'],
+      ['', '', '', '', 'DW', '', 'DW', '', '', '', ''],
+      ['', 'TL', '', '', '', '★', '', '', '', 'TL', ''],
+      ['', '', '', '', 'DW', '', 'DW', '', '', '', ''],
+      ['DL', '', '', 'DW', '', '', '', 'DW', '', '', 'DL'],
+      ['', '', 'DW', '', '', '', '', '', 'DW', '', ''],
+      ['', 'DW', '', '', '', 'TL', '', '', '', 'DW', ''],
+      ['TW', '', '', 'DL', '', '', 'DL', '', '', '', 'TW']
     ];
 
     const board = document.getElementById("board");
@@ -274,6 +319,14 @@
 
     window.addEventListener('resize', updateScale);
     window.addEventListener('load', updateScale);
+    window.addEventListener('resize', () => {
+      updateScale();
+      updateDebugPanel();
+    });
+    window.addEventListener('load', () => {
+      updateScale();
+      updateDebugPanel();
+    });
   </script>
 
 </body>
