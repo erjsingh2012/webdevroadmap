@@ -280,35 +280,103 @@
       </tr>
     </table>
 
-    <!-- The rest of the categories remain as simple lists for now -->
+    <!-- 4. Inline Text & Formatting -->
     <h3 id="inline">4. Inline Text & Formatting</h3>
-    <ul>
-      <li><code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;span&gt;</code></td><td>Generic inline container for phrasing content.</td><td><code>&lt;span&gt;highlight&lt;/span&gt;</code></td><td>Use for styling or scripting, not for structure.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;strong&gt;</code></td><td>Indicates strong importance.</td><td><code>&lt;strong&gt;Warning!&lt;/strong&gt;</code></td><td>Use for important text, not just bold styling.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;em&gt;</code></td><td>Emphasizes text (stress).</td><td><code>&lt;em&gt;very&lt;/em&gt; important</code></td><td>Use for emphasis, not just italics.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;small&gt;</code></td><td>Side comments, disclaimers, or fine print.</td><td><code>&lt;small&gt;Terms apply&lt;/small&gt;</code></td><td>Use for legal or side notes, not for general text sizing.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;del&gt;</code></td><td>Represents deleted/removed text.</td><td><code>&lt;del&gt;old text&lt;/del&gt;</code></td><td>Use with <code>&lt;ins&gt;</code> for edits.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;ins&gt;</code></td><td>Represents inserted/added text.</td><td><code>&lt;ins&gt;new text&lt;/ins&gt;</code></td><td>Use with <code>&lt;del&gt;</code> for edits.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;sub&gt;</code></td><td>Subscript text.</td><td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td><td>Use for chemical formulas, math, etc.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;sup&gt;</code></td><td>Superscript text.</td><td><code>x&lt;sup&gt;2&lt;/sup&gt;</code></td><td>Use for exponents, footnotes, etc.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 5. Lists -->
     <h3 id="lists">5. Lists</h3>
-    <ul>
-      <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;ul&gt;</code></td><td>Unordered (bulleted) list.</td><td><code>&lt;ul&gt;&lt;li&gt;A&lt;/li&gt;&lt;/ul&gt;</code></td><td>Use for lists without order/sequence.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;ol&gt;</code></td><td>Ordered (numbered) list.</td><td><code>&lt;ol&gt;&lt;li&gt;A&lt;/li&gt;&lt;/ol&gt;</code></td><td>Use for steps, sequences, or rankings.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;li&gt;</code></td><td>List item (child of <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, or <code>&lt;menu&gt;</code>).</td><td><code>&lt;li&gt;Item&lt;/li&gt;</code></td><td>Always use inside a parent list element.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;dl&gt;</code></td><td>Description (definition) list.</td><td><code>&lt;dl&gt;&lt;dt&gt;Term&lt;/dt&gt;&lt;dd&gt;Def&lt;/dd&gt;&lt;/dl&gt;</code></td><td>Use for glossaries, metadata, etc.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;dt&gt;</code></td><td>Term/name in a description list.</td><td><code>&lt;dt&gt;HTML&lt;/dt&gt;</code></td><td>Always paired with <code>&lt;dd&gt;</code>.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;dd&gt;</code></td><td>Definition/description in a description list.</td><td><code>&lt;dd&gt;HyperText Markup Language&lt;/dd&gt;</code></td><td>Always paired with <code>&lt;dt&gt;</code>.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 6. Links & Media -->
     <h3 id="media">6. Links & Media</h3>
-    <ul>
-      <li><code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;source&gt;</code>, <code>&lt;track&gt;</code>, <code>&lt;map&gt;</code>, <code>&lt;area&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;a&gt;</code></td><td>Hyperlink to another page or resource.</td><td><code>&lt;a href='url'&gt;Link&lt;/a&gt;</code></td><td>Use descriptive link text for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;img&gt;</code></td><td>Embeds an image.</td><td><code>&lt;img src='img.png' alt='desc'&gt;</code></td><td>Always use <code>alt</code> for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;figure&gt;</code></td><td>Groups media and caption.</td><td><code>&lt;figure&gt;...&lt;/figure&gt;</code></td><td>Use with <code>&lt;figcaption&gt;</code> for clarity.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;figcaption&gt;</code></td><td>Caption for a <code>&lt;figure&gt;</code>.</td><td><code>&lt;figcaption&gt;Caption&lt;/figcaption&gt;</code></td><td>Place as first or last child of <code>&lt;figure&gt;</code>.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;audio&gt;</code></td><td>Embeds audio content.</td><td><code>&lt;audio controls src='audio.mp3'&gt;&lt;/audio&gt;</code></td><td>Provide controls and fallback text.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;video&gt;</code></td><td>Embeds video content.</td><td><code>&lt;video controls src='video.mp4'&gt;&lt;/video&gt;</code></td><td>Provide controls, captions, and fallback text.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;source&gt;</code></td><td>Specifies media source for <code>&lt;audio&gt;</code>/<code>&lt;video&gt;</code>.</td><td><code>&lt;source src='file.mp3' type='audio/mpeg'&gt;</code></td><td>Use multiple sources for compatibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;track&gt;</code></td><td>Text tracks for <code>&lt;video&gt;</code>/<code>&lt;audio&gt;</code> (subtitles, captions).</td><td><code>&lt;track kind='subtitles' src='subs.vtt'&gt;</code></td><td>Use for accessibility and localization.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;map&gt;</code></td><td>Image map with clickable areas.</td><td><code>&lt;map name='m'&gt;...&lt;/map&gt;</code></td><td>Use with <code>&lt;area&gt;</code> and <code>alt</code> text.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;area&gt;</code></td><td>Defines a clickable area in an image map.</td><td><code>&lt;area shape='rect' coords='...' href='...'&gt;</code></td><td>Always provide <code>alt</code> for each area.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 7. Forms & Inputs -->
     <h3 id="forms">7. Forms & Inputs</h3>
-    <ul>
-      <li><code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>, <code>&lt;datalist&gt;</code>, <code>&lt;output&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;form&gt;</code></td><td>Container for user input controls.</td><td><code>&lt;form action='url'&gt;...&lt;/form&gt;</code></td><td>Use <code>method</code> and <code>action</code> attributes.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;input&gt;</code></td><td>Input field (text, checkbox, etc.).</td><td><code>&lt;input type='text'&gt;</code></td><td>Use correct <code>type</code> for data.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;label&gt;</code></td><td>Label for a form control.</td><td><code>&lt;label for='id'&gt;Name&lt;/label&gt;</code></td><td>Always associate with a control for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;textarea&gt;</code></td><td>Multi-line text input.</td><td><code>&lt;textarea&gt;Text&lt;/textarea&gt;</code></td><td>Use <code>rows</code> and <code>cols</code> as needed.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;button&gt;</code></td><td>Clickable button.</td><td><code>&lt;button&gt;Click&lt;/button&gt;</code></td><td>Use <code>type</code> attribute (button, submit, reset).</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;select&gt;</code></td><td>Drop-down list.</td><td><code>&lt;select&gt;&lt;option&gt;A&lt;/option&gt;&lt;/select&gt;</code></td><td>Use <code>&lt;label&gt;</code> for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;option&gt;</code></td><td>Option in a drop-down list.</td><td><code>&lt;option value='1'&gt;One&lt;/option&gt;</code></td><td>Use <code>value</code> for form data.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;fieldset&gt;</code></td><td>Groups related form controls.</td><td><code>&lt;fieldset&gt;...&lt;/fieldset&gt;</code></td><td>Use with <code>&lt;legend&gt;</code> for clarity.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;legend&gt;</code></td><td>Caption for a <code>&lt;fieldset&gt;</code>.</td><td><code>&lt;legend&gt;Info&lt;/legend&gt;</code></td><td>Describe the group of controls.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;datalist&gt;</code></td><td>Predefined options for <code>&lt;input&gt;</code>.</td><td><code>&lt;datalist id='dl'&gt;&lt;option value='A'&gt;&lt;/datalist&gt;</code></td><td>Link with <code>list</code> attribute on <code>&lt;input&gt;</code>.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;output&gt;</code></td><td>Displays calculation result.</td><td><code>&lt;output&gt;42&lt;/output&gt;</code></td><td>Use <code>for</code> attribute to associate with inputs.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 8. Tables -->
     <h3 id="tables">8. Tables</h3>
-    <ul>
-      <li><code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;col&gt;</code>, <code>&lt;colgroup&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;table&gt;</code></td><td>Table container.</td><td><code>&lt;table&gt;...&lt;/table&gt;</code></td><td>Use for tabular data, not layout.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;thead&gt;</code></td><td>Group of header rows in a table.</td><td><code>&lt;thead&gt;...&lt;/thead&gt;</code></td><td>Use for column headings.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;tbody&gt;</code></td><td>Group of body rows in a table.</td><td><code>&lt;tbody&gt;...&lt;/tbody&gt;</code></td><td>Use for main data rows.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;tfoot&gt;</code></td><td>Group of footer rows in a table.</td><td><code>&lt;tfoot&gt;...&lt;/tfoot&gt;</code></td><td>Use for summary or totals.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;tr&gt;</code></td><td>Table row.</td><td><code>&lt;tr&gt;...&lt;/tr&gt;</code></td><td>Use inside <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, or <code>&lt;tfoot&gt;</code>.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;td&gt;</code></td><td>Table data cell.</td><td><code>&lt;td&gt;Data&lt;/td&gt;</code></td><td>Use for data, not headers.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;th&gt;</code></td><td>Table header cell.</td><td><code>&lt;th&gt;Header&lt;/th&gt;</code></td><td>Use <code>scope</code> for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;caption&gt;</code></td><td>Table caption/title.</td><td><code>&lt;caption&gt;Title&lt;/caption&gt;</code></td><td>Describe the table’s purpose.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;col&gt;</code></td><td>Column properties for table columns.</td><td><code>&lt;col span='2'&gt;</code></td><td>Use with <code>&lt;colgroup&gt;</code> for styling columns.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;colgroup&gt;</code></td><td>Groups columns for styling.</td><td><code>&lt;colgroup&gt;&lt;col&gt;&lt;/colgroup&gt;</code></td><td>Use to apply styles to multiple columns.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 9. Embedded Content -->
     <h3 id="embedded">9. Embedded Content</h3>
-    <ul>
-      <li><code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;param&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;svg&gt;</code>, <code>&lt;math&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;iframe&gt;</code></td><td>Embeds another HTML page.</td><td><code>&lt;iframe src='page.html'&gt;&lt;/iframe&gt;</code></td><td>Set <code>title</code> for accessibility; avoid iframes for layout.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;embed&gt;</code></td><td>Embeds external content (PDF, Flash, etc.).</td><td><code>&lt;embed src='file.pdf'&gt;</code></td><td>Use only when necessary; provide fallback.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;object&gt;</code></td><td>Embeds external resources (images, PDFs, etc.).</td><td><code>&lt;object data='file.pdf'&gt;&lt;/object&gt;</code></td><td>Use <code>type</code> and fallback content.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;param&gt;</code></td><td>Parameters for <code>&lt;object&gt;</code>.</td><td><code>&lt;param name='autoplay' value='true'&gt;</code></td><td>Use to pass settings to embedded objects.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;canvas&gt;</code></td><td>Drawable region for graphics (via JS).</td><td><code>&lt;canvas id='c' width='100' height='100'&gt;&lt;/canvas&gt;</code></td><td>Always provide fallback text for accessibility.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;svg&gt;</code></td><td>Scalable Vector Graphics container.</td><td><code>&lt;svg width='100' height='100'&gt;...&lt;/svg&gt;</code></td><td>Use for vector graphics and icons.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;math&gt;</code></td><td>MathML math formulas.</td><td><code>&lt;math&gt;...&lt;/math&gt;</code></td><td>Use for displaying mathematical notation.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/MathML/Element/math" target="_blank">MDN</a></td></tr>
+    </table>
+
+    <!-- 10. Scripting & Programmatic -->
     <h3 id="scripting">10. Scripting & Programmatic</h3>
-    <ul>
-      <li><code>&lt;script&gt;</code>, <code>&lt;noscript&gt;</code>, <code>&lt;template&gt;</code>, <code>&lt;slot&gt;</code></li>
-    </ul>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr><td><code>&lt;script&gt;</code></td><td>Embeds or references JavaScript code.</td><td><code>&lt;script src='app.js'&gt;&lt;/script&gt;</code></td><td>Place scripts at end of <code>&lt;body&gt;</code> for performance.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;noscript&gt;</code></td><td>Fallback content if JS is disabled.</td><td><code>&lt;noscript&gt;Enable JS&lt;/noscript&gt;</code></td><td>Use for critical info if JS is required.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;template&gt;</code></td><td>Client-side content template (not rendered until used by JS).</td><td><code>&lt;template id='tpl'&gt;...&lt;/template&gt;</code></td><td>Use for reusable HTML fragments.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank">MDN</a></td></tr>
+      <tr><td><code>&lt;slot&gt;</code></td><td>Placeholder for web component content.</td><td><code>&lt;slot&gt;Default&lt;/slot&gt;</code></td><td>Use in custom elements for content projection.</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot" target="_blank">MDN</a></td></tr>
+    </table>
   </section>
 
   <section>

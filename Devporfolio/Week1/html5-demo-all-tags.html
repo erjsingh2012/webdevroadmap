@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML5 All Tags Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f9f9f9; color: #222; padding: 2em; }
+    h1, h2, h3 { color: #003366; }
+    section { margin-bottom: 2em; border-bottom: 1px solid #ddd; padding-bottom: 1em; }
+    pre, code { background: #f4f4f4; padding: 2px 4px; border-radius: 3px; }
+    table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+    th, td { border: 1px solid #ccc; padding: 0.5em; }
+    th { background: #f0f0f0; }
+    .demo { background: #fff; padding: 1em; border-radius: 6px; box-shadow: 0 1px 4px #0001; }
+  </style>
+</head>
+<body>
+  <h1>HTML5 All Tags Demo Project</h1>
+  <p>This demo showcases practical usage of all major HTML5 tags, organized by category. View source for comments and details.</p>
+
+  <!-- 1. Structure -->
+  <section>
+    <h2>1. Structure</h2>
+    <div class="demo">
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Demo&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="#"&gt;
+    &lt;style&gt;/* CSS here */&lt;/style&gt;
+    &lt;base href="https://example.com/"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;...&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- 2. Document Sections -->
+  <section>
+    <h2>2. Document Sections</h2>
+    <div class="demo">
+      <header>
+        <h1>Site Title</h1>
+        <nav>
+          <a href="#main">Main</a> | <a href="#aside">Aside</a>
+        </nav>
+      </header>
+      <main id="main">
+        <section>
+          <h2>Section Heading</h2>
+          <article>
+            <h3>Article Title</h3>
+            <p>This is an article inside a section.</p>
+          </article>
+        </section>
+      </main>
+      <aside id="aside">
+        <h4>Related</h4>
+        <p>This is an aside (sidebar) content.</p>
+      </aside>
+      <footer>
+        <address>Contact: <a href="mailto:info@example.com">info@example.com</a></address>
+        <p>&copy; 2025 Demo</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- 3. Text Content -->
+  <section>
+    <h2>3. Text Content</h2>
+    <div class="demo">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <p>This is a paragraph. <br> This is a line break.</p>
+      <hr>
+      <pre>  Preformatted
+    Text</pre>
+      <blockquote cite="https://developer.mozilla.org/">This is a blockquote.</blockquote>
+      <q>This is an inline quote.</q>
+      <p>Cited from <cite>Moby Dick</cite>.</p>
+      <p>Code: <code>let x = 5;</code></p>
+      <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+      <p>Highlight: <mark>important</mark></p>
+      <p>Published: <time datetime="2025-07-01">July 1, 2025</time></p>
+    </div>
+  </section>
+
+  <!-- 4. Inline Text & Formatting -->
+  <section>
+    <h2>4. Inline Text & Formatting</h2>
+    <div class="demo">
+      <p><span>Span text</span>, <strong>strong</strong>, <em>emphasized</em>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, H<sub>2</sub>O, x<sup>2</sup></p>
+    </div>
+  </section>
+
+  <!-- 5. Lists -->
+  <section>
+    <h2>5. Lists</h2>
+    <div class="demo">
+      <ul>
+        <li>Unordered item 1</li>
+        <li>Unordered item 2</li>
+      </ul>
+      <ol>
+        <li>Ordered item 1</li>
+        <li>Ordered item 2</li>
+      </ol>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 6. Links & Media -->
+  <section>
+    <h2>6. Links & Media</h2>
+    <div class="demo">
+      <a href="https://developer.mozilla.org/">MDN Web Docs</a><br>
+      <img src="https://via.placeholder.com/100" alt="Placeholder image">
+      <figure>
+        <img src="https://via.placeholder.com/80" alt="Figure image">
+        <figcaption>Figure caption</figcaption>
+      </figure>
+      <audio controls src="https://www.w3schools.com/html/horse.mp3">Audio not supported</audio>
+      <video controls width="160" src="https://www.w3schools.com/html/mov_bbb.mp4">Video not supported</video>
+      <map name="demo-map">
+        <area shape="rect" coords="0,0,50,50" href="#" alt="Square">
+      </map>
+      <img src="https://via.placeholder.com/50" usemap="#demo-map" alt="Map demo">
+    </div>
+  </section>
+
+  <!-- 7. Forms & Inputs -->
+  <section>
+    <h2>7. Forms & Inputs</h2>
+    <div class="demo">
+      <form action="#" method="get">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text">
+        <textarea name="comments">Your comments</textarea>
+        <button type="submit">Submit</button>
+        <select name="choice">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+        </select>
+        <fieldset>
+          <legend>Group</legend>
+          <input type="checkbox" id="cb1"><label for="cb1">Check me</label>
+        </fieldset>
+        <input list="datalist-demo" name="dlist">
+        <datalist id="datalist-demo">
+          <option value="Option 1">
+          <option value="Option 2">
+        </datalist>
+        <output name="result">42</output>
+      </form>
+    </div>
+  </section>
+
+  <!-- 8. Tables -->
+  <section>
+    <h2>8. Tables</h2>
+    <div class="demo">
+      <table>
+        <caption>Sample Table</caption>
+        <colgroup>
+          <col span="1" style="background:#eef">
+          <col span="1">
+        </colgroup>
+        <thead>
+          <tr><th>Header 1</th><th>Header 2</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cell 1</td><td>Cell 2</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="2">Footer</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- 9. Embedded Content -->
+  <section>
+    <h2>9. Embedded Content</h2>
+    <div class="demo">
+      <iframe src="https://www.example.com" title="Example iframe" width="200" height="60"></iframe>
+      <embed src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" width="100" height="60">
+      <object data="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" type="application/pdf" width="100" height="60">PDF fallback</object>
+      <canvas id="canvas-demo" width="80" height="40" style="border:1px solid #ccc;">Canvas fallback</canvas>
+      <svg width="60" height="40"><circle cx="20" cy="20" r="15" fill="#0077cc" /></svg>
+      <math><msup><mi>x</mi><mn>2</mn></msup></math>
+    </div>
+  </section>
+
+  <!-- 10. Scripting & Programmatic -->
+  <section>
+    <h2>10. Scripting & Programmatic</h2>
+    <div class="demo">
+      <script>document.write('<span style="color:green">&lt;script&gt; tag works!</span>');</script>
+      <noscript>Your browser does not support JavaScript!</noscript>
+      <template id="tpl-demo"><p>This is a template!</p></template>
+      <slot name="slot-demo">Default slot content</slot>
+    </div>
+  </section>
+
+  <footer>
+    <p>Demo by Jatinderpal Singh — July 2025</p>
+  </footer>
+</body>
+</html> 
