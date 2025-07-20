@@ -3,165 +3,214 @@
 
 <head>
   <!-- Sets viewport to enable responsive scaling on mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-    /* Root variable for tile size; 1vw = 1% of viewport width */
-    :root {
-      --tile-size: 7.5vw; /* Responsive tile size */
-    }
+   :root {
+  --tile-size: 7.5vw;
+}
 
-    /* Universal body and html style */
-    html,
-    body {
-      margin: 0; /* Removes default browser margin */
-      padding: 0;
-      height: 100dvh; /* Full device height, dynamic (accounts for address bars) */
-      width: 100vw;
-      background-color: #1e4d9b;
-      display: flex; /* Flex layout: centers content horizontally */
-      justify-content: center;
-      align-items: start;
-      font-family: sans-serif;
-      overflow: hidden; /* Prevent scrollbars */
-    }
+/* Reset + base layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100vw;
+  background-color: #1e4d9b;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  overflow: hidden;
+}
 
-    /* Main container centered and max width for game layout */
-    .scale-wrapper {
-      width: 100%;
-      max-width: 561px; /* Limits max width for larger devices */
-      height: 100dvh;
-      position: relative;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Adds depth */
-    }
+/* Scaled container for centering content */
+.scale-wrapper {
+  width: 100%;
+  max-width: 561px;
+  height: 100dvh;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
 
-    /* Game content container using flexbox */
-    .game-frame {
-      height: 100%;
-      width: 100%;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column; /* Stacks children vertically */
-      justify-content: space-between;
-    }
+/* Game frame layout */
+.game-frame {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    /* Panel base style */
-    .panel {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
+/* Generic UI panel */
+.panel {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
 
-    /* Top UI headers */
-    .top-panel-1 {
-      background: #111; /* Dark background */
-      font-weight: bold;
-    }
+/* Top panels */
+.top-panel-1 {
+  background: #111;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-    .top-panel-2 {
-      background: #007aff; /* iOS blue style */
-    }
+.top-panel-2 {
+  background: #007aff;
+  color: #fff;
+  font-weight: 600;
+}
 
-    /* Bottom panels with various functions and styles */
-    .bottom-panel-1 {
-      background: #2a84d2;
-      font-style: italic;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-    }
+/* Bottom panel 1: Last move */
+.bottom-panel-1 {
+  background: #2a84d2;
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .bottom-panel-2 {
-      background: #f4a742;
-      color: black;
-    }
+/* Bottom panel 2: Player rack */
+.bottom-panel-2 {
+  background: linear-gradient(to bottom, #fdd835, #fbc02d);
+  color: #212121;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
 
-    .bottom-panel-3 {
-      background: #007aff;
-    }
+/* Bottom panel 3: Game actions */
+.bottom-panel-3 {
+  background: linear-gradient(to right, #007aff, #0051a8);
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-    .bottom-panel-4 {
-      background: #007aff;
-      display: none; /* Hidden until toggle */
-      transition: transform 0.3s ease, margin-bottom 0.3s ease;
-    }
+/* Bottom panel 4: Expandable/debug */
+.bottom-panel-4 {
+  background: linear-gradient(to right, #007aff, #0051a8);
+  display: none;
+  color: #0f0;
+  transition: transform 0.3s ease, margin-bottom 0.3s ease;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
 
-    /* Main board area */
-    .game-area {
-      flex: 1; /* Take all remaining space */
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-    }
+/* Game area */
+.game-area {
+  flex: 1;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
 
-    /* Game board uses CSS Grid */
-    .board {
-      display: grid;
-      grid-template-columns: repeat(11, 1fr); /* 11 equal-width columns */
-      gap: 1px;
-      background: #ffffff;
-      padding: 10px 16px; /* Horizontal padding for mobile spacing */
-      width: 100%;
-      max-width: 500px;
-      aspect-ratio: 1 / 1; /* Makes it square */
-    }
+/* Game board with shadow and padding */
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 2px;
+  background: #b0bec5;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
 
-    /* Each tile in board */
-    .tile {
-      width: 100%;
-      aspect-ratio: 1 / 1; /* Keeps square shape */
-      font-size: 0.7rem;
-      font-weight: bold;
-      color: white;
-      background: #4CAF50;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      text-transform: uppercase;
-    }
+/* Tiles - Default */
+.tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom, #6ec06e, #388e3c);
+  border-radius: 6px;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  text-transform: uppercase;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
 
-    /* Special tiles with unique colors */
-    .TW { background: #f44336; } /* Triple Word */
-    .DW { background: #ffc107; color: #000; } /* Double Word */
-    .TL { background: #2196f3; } /* Triple Letter */
-    .DL { background: #9e9e9e; } /* Double Letter */
+.tile:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
 
-    /* Debug toggle button */
-    #fix-view-btn {
-      font-size: 12px;
-      padding: 4px 10px;
-      margin-top: -100px; /* Adjusts position visually */
-      background-color: #007aff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      z-index: 10;
-    }
+.tile:active {
+  transform: scale(0.95);
+}
 
-    /* Debug panel overlay */
-    .debug-panel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.85);
-      color: #00ff99;
-      font-size: 12px;
-      padding: 6px 8px;
-      font-family: monospace;
-      z-index: 999;
-      white-space: pre-line;
-      pointer-events: none;
-    }
+/* Bonus tiles */
+.TW {
+  background: linear-gradient(to bottom, #f44336, #b71c1c);
+  color: #fff;
+}
+
+.DW {
+  background: linear-gradient(to bottom, #ffeb3b, #fbc02d);
+  color: #000;
+}
+
+.TL {
+  background: linear-gradient(to bottom, #2196f3, #0d47a1);
+  color: #fff;
+}
+
+.DL {
+  background: linear-gradient(to bottom, #9e9e9e, #616161);
+  color: #fff;
+}
+
+/* Debug toggle button */
+#fix-view-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-top: -100px;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+#fix-view-btn:hover {
+  background-color: #0051a8;
+}
+
+/* Debug panel overlay */
+.debug-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff99;
+  font-size: 12px;
+  padding: 6px 8px;
+  font-family: monospace;
+  z-index: 999;
+  white-space: pre-line;
+  pointer-events: none;
+  border-bottom: 1px solid #0f0;
+}
+
   </style>
 </head>
 
@@ -261,4 +310,5 @@
     window.addEventListener('resize', updateDebugPanel);
   </script>
 </body>
+
 </html>
