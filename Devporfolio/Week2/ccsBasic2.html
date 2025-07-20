@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Deep Dive: Box Model, Selectors, Specificity</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background-color: #34495e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    section {
+      background: white;
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .box-example {
+      width: 200px;
+      height: 100px;
+      background: #e0f7fa;
+      padding: 20px;
+      border: 5px solid #00796b;
+      margin: 20px;
+    }
+
+    .selector-demo p {
+      margin-bottom: 10px;
+    }
+
+    .selector-demo .class-select {
+      color: green;
+    }
+
+    .selector-demo #id-select {
+      color: blue;
+    }
+
+    .selector-demo div > span {
+      font-weight: bold;
+    }
+
+    .selector-demo a:hover {
+      color: red;
+    }
+
+    .specificity-demo p {
+      color: black;
+    }
+
+    .specificity-demo .important {
+      color: orange;
+    }
+
+    .specificity-demo #unique {
+      color: purple;
+    }
+
+    .specificity-demo .override {
+      color: green !important;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      border-left: 5px solid #3498db;
+    }
+
+    .tip {
+      background: #e8f5e9;
+      padding: 10px;
+      border-left: 4px solid #2e7d32;
+      margin: 10px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CSS Masterclass: Box Model, Selectors, and Specificity</h1>
+  <nav>
+    <ul>
+      <li><a href="#box-model">Box Model</a></li>
+      <li><a href="#selectors">Selectors</a></li>
+      <li><a href="#specificity">Specificity</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Box Model -->
+  <section id="box-model">
+    <h2>1. The CSS Box Model</h2>
+    <p>All HTML elements are considered boxes in CSS. The <strong>box model</strong> includes:</p>
+    <ul>
+      <li><strong>Content:</strong> the actual text or image</li>
+      <li><strong>Padding:</strong> space around the content</li>
+      <li><strong>Border:</strong> edge around the padding</li>
+      <li><strong>Margin:</strong> space outside the border</li>
+    </ul>
+
+    <div class="box-example">Box Example</div>
+
+    <p>You can inspect this using DevTools to see how margin, padding, and borders behave.</p>
+
+    <div class="tip">
+      💡 Tip: Use <code>box-sizing: border-box</code> to include padding and border in total width/height.
+    </div>
+
+    <pre><code>
+.box-example {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid #00796b;
+  margin: 20px;
+  background: #e0f7fa;
+}
+    </code></pre>
+  </section>
+
+  <!-- Selectors -->
+  <section id="selectors" class="selector-demo">
+    <h2>2. CSS Selectors</h2>
+
+    <h3>Basic Selectors</h3>
+    <p><code>p</code> - Type selector</p>
+    <p><code>.class</code> - Class selector</p>
+    <p><code>#id</code> - ID selector</p>
+
+    <h3>Combinators</h3>
+    <ul>
+      <li><code>div p</code> – Descendant</li>
+      <li><code>div > p</code> – Direct Child</li>
+      <li><code>div + p</code> – Adjacent Sibling</li>
+      <li><code>div ~ p</code> – General Sibling</li>
+    </ul>
+
+    <h3>Pseudo-classes</h3>
+    <p><code>a:hover</code> – applies when hovered</p>
+    <p><code>li:first-child</code> – first list item</p>
+
+    <h3>Examples</h3>
+    <p class="class-select">This uses a class selector (.class-select)</p>
+    <p id="id-select">This uses an ID selector (#id-select)</p>
+    <div>
+      <span>This span is a child of div</span>
+    </div>
+    <p><a href="#">Hover this link</a></p>
+  </section>
+
+  <!-- Specificity -->
+  <section id="specificity" class="specificity-demo">
+    <h2>3. CSS Specificity</h2>
+
+    <p>Specificity determines which CSS rule is applied when multiple rules match the same element.</p>
+
+    <h3>Order of Specificity</h3>
+    <ol>
+      <li>Inline styles (e.g. <code>style="..."</code>)</li>
+      <li>ID selectors <code>(#id)</code></li>
+      <li>Class, attributes, and pseudo-classes <code>(.class, [type], :hover)</code></li>
+      <li>Element and pseudo-elements <code>(div, p, ::before)</code></li>
+    </ol>
+
+    <p><strong>!important</strong> overrides all other declarations (use carefully!)</p>
+
+    <h3>Example:</h3>
+    <p class="important" id="unique">This has both class (.important) and ID (#unique)</p>
+    <p class="override" style="color: red;">Green wins due to <code>!important</code>.</p>
+
+    <h3>Specificity Calculation</h3>
+    <ul>
+      <li><code>p</code> → 0,0,0,1</li>
+      <li><code>.important</code> → 0,0,1,0</li>
+      <li><code>#unique</code> → 0,1,0,0</li>
+      <li><code>style="..."</code> → 1,0,0,0</li>
+    </ul>
+
+    <div class="tip">
+      💡 Tip: Use the <a href="https://specificity.keegan.st/" target="_blank">Specificity Calculator</a> to debug conflicts.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Created as a CSS Fundamentals Guide by ChatGPT · © 2025</p>
+</footer>
+
+</body>
+</html>

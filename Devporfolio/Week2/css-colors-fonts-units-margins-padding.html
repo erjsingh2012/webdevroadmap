@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Deep Dive: Colors, Fonts, Units, Margin & Padding</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #f44336;
+      --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 20px;
+      margin: 10px auto;
+      background-color: white;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .color-box {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .color-sample {
+      width: 100px;
+      height: 100px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+
+    .unit-demo, .font-demo {
+      margin-bottom: 20px;
+    }
+
+    .unit-box {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .margin-padding-demo {
+      background-color: #e0f7fa;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .inner-box {
+      background-color: #b2ebf2;
+      padding: 10px;
+      margin: 10px;
+      border: 2px dashed #00796b;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      background: #fff8c6;
+      padding: 10px;
+      border-left: 4px solid #ffeb3b;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CSS Deep Dive: Colors, Fonts, Units, Margin & Padding</h1>
+</header>
+
+<section>
+  <h2>🎨 Colors</h2>
+  <p>CSS supports various color formats:</p>
+  <ul>
+    <li><strong>Hexadecimal</strong>: <code>#RRGGBB</code> (e.g., <code>#ff0000</code>)</li>
+    <li><strong>RGB</strong>: <code>rgb(255, 0, 0)</code></li>
+    <li><strong>RGBA</strong>: With opacity. <code>rgba(255, 0, 0, 0.5)</code></li>
+    <li><strong>HSL</strong>: <code>hsl(0, 100%, 50%)</code> (Hue, Saturation, Lightness)</li>
+    <li><strong>Named Colors</strong>: red, blue, green, teal, etc.</li>
+  </ul>
+
+  <div class="color-box">
+    <div class="color-sample" style="background-color: #ff0000;">#ff0000</div>
+    <div class="color-sample" style="background-color: rgb(0, 255, 0);">rgb(0,255,0)</div>
+    <div class="color-sample" style="background-color: rgba(0,0,255,0.5);">rgba</div>
+    <div class="color-sample" style="background-color: hsl(200, 80%, 50%);">hsl</div>
+    <div class="color-sample" style="background-color: goldenrod;">named</div>
+  </div>
+</section>
+
+<section>
+  <h2>🔤 Fonts</h2>
+  <div class="font-demo">
+    <p style="font-family: Arial;">Font: Arial</p>
+    <p style="font-family: 'Courier New', monospace;">Font: Courier New</p>
+    <p style="font-family: Georgia;">Font: Georgia</p>
+    <p style="font-family: 'Segoe UI'; font-weight: bold;">Font: Segoe UI (bold)</p>
+    <p style="font-style: italic;">Font Style: Italic</p>
+    <p style="font-size: 24px;">Font Size: 24px</p>
+    <p style="line-height: 2;">Line Height: 2</p>
+  </div>
+
+  <div class="note">
+    <strong>Pro Tip:</strong> Use fallback fonts (e.g., <code>font-family: "Helvetica", Arial, sans-serif;</code>)
+    to support different systems.
+  </div>
+</section>
+
+<section>
+  <h2>📏 Units</h2>
+
+  <div class="unit-demo">
+    <div class="unit-box" style="width: 200px;">Width: 200px (absolute)</div>
+    <div class="unit-box" style="width: 50%;">Width: 50% (relative to parent)</div>
+    <div class="unit-box" style="font-size: 2em;">Font Size: 2em (relative to parent)</div>
+    <div class="unit-box" style="font-size: 2rem;">Font Size: 2rem (relative to root)</div>
+    <div class="unit-box" style="height: 20vh;">Height: 20vh (viewport height)</div>
+    <div class="unit-box" style="width: 20vw;">Width: 20vw (viewport width)</div>
+    <div class="unit-box" style="width: 20ch;">Width: 20ch (20 characters)</div>
+    <div class="unit-box" style="font-size: 2ex;">Font Size: 2ex (height of 'x')</div>
+  </div>
+
+  <div class="note">
+    <strong>Best Practice:</strong> Use <code>rem</code> for scalable typography and <code>vh/vw</code> for full screen layouts.
+  </div>
+</section>
+
+<section>
+  <h2>📦 Margin & Padding</h2>
+
+  <h3>Padding (Inner space)</h3>
+  <div class="margin-padding-demo">
+    <div class="inner-box">Box with 10px padding inside the outer container</div>
+  </div>
+
+  <h3>Margin (Outer space)</h3>
+  <div class="margin-padding-demo" style="margin: 40px 20px;">
+    Outer margin: Top & Bottom 40px, Left & Right 20px
+  </div>
+
+  <h3>Shorthand</h3>
+  <ul>
+    <li><code>margin: 10px;</code> → all sides</li>
+    <li><code>margin: 10px 20px;</code> → top/bottom 10px, left/right 20px</li>
+    <li><code>margin: 10px 15px 20px 25px;</code> → top, right, bottom, left</li>
+  </ul>
+
+  <h3>Margin Collapse</h3>
+  <div class="note">
+    Two vertical margins of adjacent blocks may collapse into one. Example: Two <code>&lt;p&gt;</code> tags each with <code>margin-top: 20px;</code> may result in 20px, not 40px.
+  </div>
+</section>
+
+<section>
+  <h2>📌 Summary</h2>
+  <ul>
+    <li><strong>Colors:</strong> Support multiple formats like Hex, RGB, HSL, and named colors.</li>
+    <li><strong>Fonts:</strong> Define font-family, weight, size, style, and line-height.</li>
+    <li><strong>Units:</strong> Understand absolute (px) vs relative (%, em, rem, vw, vh).</li>
+    <li><strong>Margins:</strong> Space outside the element. May collapse.</li>
+    <li><strong>Padding:</strong> Space inside the element.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📚 Learn More</h2>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color" target="_blank">MDN – CSS Colors</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font" target="_blank">MDN – CSS Fonts</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length" target="_blank">MDN – CSS Units</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank">MDN – CSS Margin</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding" target="_blank">MDN – CSS Padding</a></li>
+  </ul>
+</section>
+
+</body>
+</html>

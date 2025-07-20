@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Resume</title>
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --accent-color: #3b82f6;
+      --font-stack: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-stack);
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .info-block > div {
+      width: 48%;
+      margin-bottom: 1rem;
+    }
+
+    .skills, .languages, .projects {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.3rem 0.6rem;
+      margin: 0.2rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .experience-item, .education-item {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-item h3, .education-item h3 {
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .info-block > div {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>John Doe</h1>
+    <p>Full Stack Developer | johndoe@example.com | +1 123 456 7890</p>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>Experienced full-stack developer with 5+ years of hands-on experience building scalable web applications using modern technologies. Adept in problem solving, system design, and performance optimization.</p>
+    </section>
+
+    <section class="info-block">
+      <div>
+        <h2>Contact</h2>
+        <p>Email: johndoe@example.com</p>
+        <p>Phone: +1 123 456 7890</p>
+        <p>LinkedIn: linkedin.com/in/johndoe</p>
+        <p>GitHub: github.com/johndoe</p>
+      </div>
+      <div>
+        <h2>Skills</h2>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">SQL</span>
+        <span class="tag">REST API</span>
+        <span class="tag">Git</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+
+      <div class="experience-item">
+        <h3>Senior Developer – ABC Corp</h3>
+        <p><em>Jan 2021 – Present</em></p>
+        <ul>
+          <li>Led development of a microservices-based e-commerce platform.</li>
+          <li>Optimized API response time by 45% through caching and query tuning.</li>
+          <li>Mentored 3 junior developers and conducted code reviews.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>Frontend Developer – XYZ Ltd</h3>
+        <p><em>Jun 2018 – Dec 2020</em></p>
+        <ul>
+          <li>Built dynamic React components for analytics dashboard.</li>
+          <li>Integrated third-party APIs and managed UI state using Redux.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Education</h2>
+
+      <div class="education-item">
+        <h3>Bachelor of Technology – Computer Science</h3>
+        <p><em>2014 – 2018</em></p>
+        <p>XYZ University, Cityville</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Portfolio Website:</strong> Personal site built with HTML, CSS, JS – responsive and deployed on GitHub Pages.</li>
+        <li><strong>Task Manager App:</strong> Full-stack MERN app with user auth, task boards, and notifications.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <span class="tag">English</span>
+      <span class="tag">Spanish</span>
+      <span class="tag">German</span>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Certified JavaScript Developer – W3Schools</li>
+        <li>Frontend Developer Nanodegree – Udacity</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer style="text-align:center; padding:1rem; background:#e5e7eb;">
+    <p>Built with 💙 by John Doe. Last updated: 2025</p>
+  </footer>
+</body>
+
+</html>
