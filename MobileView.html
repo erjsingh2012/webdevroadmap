@@ -43,52 +43,58 @@
       flex-direction: column; /* Stacks children vertically */
       justify-content: space-between;
     }
+/* Panel base style */
+.panel {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
 
-    /* Panel base style */
-    .panel {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
+/* Top UI headers */
+.top-panel-1 {
+  background: linear-gradient(to right, #111111, #2c2c2c); /* Soft black gradient */
+  font-weight: bold;
+}
 
-    /* Top UI headers */
-    .top-panel-1 {
-      background: #111; /* Dark background */
-      font-weight: bold;
-    }
+.top-panel-2 {
+  background: linear-gradient(to right, #00c6ff, #007aff); /* Modern iOS blue gradient */
+}
 
-    .top-panel-2 {
-      background: #007aff; /* iOS blue style */
-    }
+/* Bottom panels */
+.bottom-panel-1 {
+  background: linear-gradient(to right, #3a8dde, #2569be); /* Calm blue gradient */
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
 
-    /* Bottom panels with various functions and styles */
-    .bottom-panel-1 {
-      background: #2a84d2;
-      font-style: italic;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-    }
+.bottom-panel-2 {
+  background: linear-gradient(to right, #ffe082, #f4a742); /* Warm yellow/orange */
+  color: #333333;
+  font-weight: bold;
+}
 
-    .bottom-panel-2 {
-      background: #f4a742;
-      color: black;
-    }
+.bottom-panel-3 {
+  background: linear-gradient(to right, #4facfe, #007aff); /* Blue with light sheen */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    .bottom-panel-3 {
-      background: #007aff;
-    }
+.bottom-panel-4 {
+ background: linear-gradient(to right, #4facfe, #007aff); /* Blue with light sheen */
+  color: #000;
+  display: none;
+  transition: transform 0.3s ease, margin-bottom 0.3s ease;
+}
 
-    .bottom-panel-4 {
-      background: #007aff;
-      display: none; /* Hidden until toggle */
-      transition: transform 0.3s ease, margin-bottom 0.3s ease;
-    }
 
     /* Main board area */
     .game-area {
