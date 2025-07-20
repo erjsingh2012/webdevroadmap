@@ -44,57 +44,268 @@
 <body>
 
   <h1>📚 HTML5 Full Reference + Best Learning Resources</h1>
-  <p>This guide includes all HTML5 elements organized by category, along with highly recommended learning resources to master HTML.</p>
+  <p>This guide includes all HTML5 elements organized by category, with explanations, examples, best practices, and top learning resources.</p>
+
+  <!-- Table of Contents -->
+  <nav style="margin-bottom:2em;">
+    <strong>Quick Navigation:</strong>
+    <ul style="columns:2;list-style:none;padding:0;">
+      <li><a href="#structure">1. Structure</a></li>
+      <li><a href="#sections">2. Document Sections</a></li>
+      <li><a href="#text">3. Text Content</a></li>
+      <li><a href="#inline">4. Inline Text & Formatting</a></li>
+      <li><a href="#lists">5. Lists</a></li>
+      <li><a href="#media">6. Links & Media</a></li>
+      <li><a href="#forms">7. Forms & Inputs</a></li>
+      <li><a href="#tables">8. Tables</a></li>
+      <li><a href="#embedded">9. Embedded Content</a></li>
+      <li><a href="#scripting">10. Scripting & Programmatic</a></li>
+    </ul>
+  </nav>
 
   <section>
     <h2>🧱 All HTML5 Tags by Category</h2>
 
-    <h3>1. Structure</h3>
-    <ul>
-      <li><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;base&gt;</code></li>
-    </ul>
+    <!-- 1. Structure -->
+    <h3 id="structure">1. Structure</h3>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr>
+        <td><code>&lt;html&gt;</code></td>
+        <td>Root element of an HTML document.</td>
+        <td><code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></td>
+        <td>Always set the <code>lang</code> attribute for accessibility.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;head&gt;</code></td>
+        <td>Container for metadata, links, and scripts.</td>
+        <td><code>&lt;head&gt;...&lt;/head&gt;</code></td>
+        <td>Include <code>meta</code> tags for charset and viewport.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;title&gt;</code></td>
+        <td>Document title (shown in browser tab).</td>
+        <td><code>&lt;title&gt;My Page&lt;/title&gt;</code></td>
+        <td>Use a unique, descriptive title for SEO.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;body&gt;</code></td>
+        <td>Main content of the document.</td>
+        <td><code>&lt;body&gt;...&lt;/body&gt;</code></td>
+        <td>Only one <code>&lt;body&gt;</code> per page.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;meta&gt;</code></td>
+        <td>Metadata about the document (charset, viewport, etc.).</td>
+        <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+        <td>Always specify charset and viewport for modern sites.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;link&gt;</code></td>
+        <td>Links external resources (CSS, icons, etc.).</td>
+        <td><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td>
+        <td>Use <code>rel</code> and <code>href</code> attributes correctly.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;style&gt;</code></td>
+        <td>Embeds CSS styles in the document.</td>
+        <td><code>&lt;style&gt;body { color: red; }&lt;/style&gt;</code></td>
+        <td>Prefer external CSS for large projects.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;base&gt;</code></td>
+        <td>Specifies base URL for relative links.</td>
+        <td><code>&lt;base href="https://example.com/"&gt;</code></td>
+        <td>Place inside <code>&lt;head&gt;</code>; only one per page.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base" target="_blank">MDN</a></td>
+      </tr>
+    </table>
 
-    <h3>2. Document Sections</h3>
-    <ul>
-      <li><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;address&gt;</code></li>
-    </ul>
+    <!-- 2. Document Sections -->
+    <h3 id="sections">2. Document Sections</h3>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr>
+        <td><code>&lt;header&gt;</code></td>
+        <td>Introductory content or navigation links for a section/page.</td>
+        <td><code>&lt;header&gt;...&lt;/header&gt;</code></td>
+        <td>Use once per section or page for clarity.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;nav&gt;</code></td>
+        <td>Navigation links for the site or section.</td>
+        <td><code>&lt;nav&gt;...&lt;/nav&gt;</code></td>
+        <td>Use for primary navigation, not every group of links.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;main&gt;</code></td>
+        <td>Main content unique to the page.</td>
+        <td><code>&lt;main&gt;...&lt;/main&gt;</code></td>
+        <td>Only one <code>&lt;main&gt;</code> per page for accessibility.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;section&gt;</code></td>
+        <td>Thematic grouping of content, typically with a heading.</td>
+        <td><code>&lt;section&gt;...&lt;/section&gt;</code></td>
+        <td>Use headings inside for structure and accessibility.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;article&gt;</code></td>
+        <td>Self-contained, reusable composition (e.g., blog post).</td>
+        <td><code>&lt;article&gt;...&lt;/article&gt;</code></td>
+        <td>Use for independent, distributable content.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;aside&gt;</code></td>
+        <td>Content tangentially related to the main content (e.g., sidebar).</td>
+        <td><code>&lt;aside&gt;...&lt;/aside&gt;</code></td>
+        <td>Use for sidebars, pull quotes, or related links.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;footer&gt;</code></td>
+        <td>Footer for a section or page (e.g., copyright, links).</td>
+        <td><code>&lt;footer&gt;...&lt;/footer&gt;</code></td>
+        <td>Use at the end of sections or the page.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;address&gt;</code></td>
+        <td>Contact information for the author/owner.</td>
+        <td><code>&lt;address&gt;Email: me@example.com&lt;/address&gt;</code></td>
+        <td>Use only for contact info, not physical addresses in content.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address" target="_blank">MDN</a></td>
+      </tr>
+    </table>
 
-    <h3>3. Text Content</h3>
-    <ul>
-      <li><code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>, <code>&lt;pre&gt;</code>, <code>&lt;blockquote&gt;</code>, <code>&lt;q&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;abbr&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;time&gt;</code></li>
-    </ul>
+    <!-- 3. Text Content -->
+    <h3 id="text">3. Text Content</h3>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Example</th><th>Best Practice</th><th>MDN</th></tr>
+      <tr>
+        <td><code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code></td>
+        <td>Headings, <code>&lt;h1&gt;</code> is most important, <code>&lt;h6&gt;</code> least.</td>
+        <td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td>
+        <td>Use headings in order, don’t skip levels for accessibility.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;p&gt;</code></td>
+        <td>Paragraph of text.</td>
+        <td><code>&lt;p&gt;Hello world!&lt;/p&gt;</code></td>
+        <td>Use for blocks of text, not for spacing.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;br&gt;</code></td>
+        <td>Line break.</td>
+        <td><code>Line 1&lt;br&gt;Line 2</code></td>
+        <td>Use sparingly; prefer CSS for spacing.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;hr&gt;</code></td>
+        <td>Thematic break (horizontal rule).</td>
+        <td><code>Text above&lt;hr&gt;Text below</code></td>
+        <td>Use to separate content, not for decoration.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;pre&gt;</code></td>
+        <td>Preformatted text (preserves whitespace).</td>
+        <td><code>&lt;pre&gt;  indented text&lt;/pre&gt;</code></td>
+        <td>Great for code blocks or ASCII art.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;blockquote&gt;</code></td>
+        <td>Block-level quotation.</td>
+        <td><code>&lt;blockquote&gt;Quote&lt;/blockquote&gt;</code></td>
+        <td>Use <code>cite</code> attribute for source if available.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;q&gt;</code></td>
+        <td>Inline quotation.</td>
+        <td><code>&lt;q&gt;Short quote&lt;/q&gt;</code></td>
+        <td>Browsers add quotation marks automatically.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;cite&gt;</code></td>
+        <td>Title of a work (book, article, etc.).</td>
+        <td><code>&lt;cite&gt;Moby Dick&lt;/cite&gt;</code></td>
+        <td>Use for titles, not for people’s names.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;code&gt;</code></td>
+        <td>Inline code snippet.</td>
+        <td><code>&lt;code&gt;let x = 5;&lt;/code&gt;</code></td>
+        <td>Use for code, commands, or technical terms.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;abbr&gt;</code></td>
+        <td>Abbreviation or acronym.</td>
+        <td><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></td>
+        <td>Always use the <code>title</code> attribute for clarity.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;mark&gt;</code></td>
+        <td>Highlights text.</td>
+        <td><code>&lt;mark&gt;important&lt;/mark&gt;</code></td>
+        <td>Use to highlight search terms or relevance.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark" target="_blank">MDN</a></td>
+      </tr>
+      <tr>
+        <td><code>&lt;time&gt;</code></td>
+        <td>Machine-readable date/time.</td>
+        <td><code>&lt;time datetime="2025-07-01"&gt;July 1, 2025&lt;/time&gt;</code></td>
+        <td>Use <code>datetime</code> for events, articles, etc.</td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time" target="_blank">MDN</a></td>
+      </tr>
+    </table>
 
-    <h3>4. Inline Text & Formatting</h3>
+    <!-- The rest of the categories remain as simple lists for now -->
+    <h3 id="inline">4. Inline Text & Formatting</h3>
     <ul>
       <li><code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
     </ul>
-
-    <h3>5. Lists</h3>
+    <h3 id="lists">5. Lists</h3>
     <ul>
       <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code></li>
     </ul>
-
-    <h3>6. Links & Media</h3>
+    <h3 id="media">6. Links & Media</h3>
     <ul>
       <li><code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;source&gt;</code>, <code>&lt;track&gt;</code>, <code>&lt;map&gt;</code>, <code>&lt;area&gt;</code></li>
     </ul>
-
-    <h3>7. Forms & Inputs</h3>
+    <h3 id="forms">7. Forms & Inputs</h3>
     <ul>
       <li><code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>, <code>&lt;datalist&gt;</code>, <code>&lt;output&gt;</code></li>
     </ul>
-
-    <h3>8. Tables</h3>
+    <h3 id="tables">8. Tables</h3>
     <ul>
       <li><code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;col&gt;</code>, <code>&lt;colgroup&gt;</code></li>
     </ul>
-
-    <h3>9. Embedded Content</h3>
+    <h3 id="embedded">9. Embedded Content</h3>
     <ul>
       <li><code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;param&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;svg&gt;</code>, <code>&lt;math&gt;</code></li>
     </ul>
-
-    <h3>10. Scripting & Programmatic</h3>
+    <h3 id="scripting">10. Scripting & Programmatic</h3>
     <ul>
       <li><code>&lt;script&gt;</code>, <code>&lt;noscript&gt;</code>, <code>&lt;template&gt;</code>, <code>&lt;slot&gt;</code></li>
     </ul>
@@ -110,6 +321,23 @@
       <li><a href="https://www.codecademy.com/learn/learn-html" target="_blank">Codecademy HTML Course</a> – Interactive learning.</li>
       <li><a href="https://www.youtube.com/watch?v=pQN-pnXPaVg" target="_blank">Traversy Media – HTML Crash Course (YouTube)</a> – Fast-paced practical video.</li>
       <li><a href="https://html.spec.whatwg.org/multipage/" target="_blank">Official HTML Living Standard</a> – Full reference from WHATWG (advanced).</li>
+    </ul>
+  </section>
+
+  <!-- Cheat Sheet Summary -->
+  <section>
+    <h2>⚡ HTML5 Cheat Sheet (Quick Reference)</h2>
+    <ul style="columns:2;">
+      <li><strong>Structure:</strong> <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;base&gt;</code></li>
+      <li><strong>Sections:</strong> <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;address&gt;</code></li>
+      <li><strong>Text:</strong> <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>, <code>&lt;pre&gt;</code>, <code>&lt;blockquote&gt;</code>, <code>&lt;q&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;abbr&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;time&gt;</code></li>
+      <li><strong>Inline:</strong> <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;del&gt;</code>, <code>&lt;ins&gt;</code>, <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
+      <li><strong>Lists:</strong> <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code></li>
+      <li><strong>Media:</strong> <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;source&gt;</code>, <code>&lt;track&gt;</code>, <code>&lt;map&gt;</code>, <code>&lt;area&gt;</code></li>
+      <li><strong>Forms:</strong> <code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>, <code>&lt;datalist&gt;</code>, <code>&lt;output&gt;</code></li>
+      <li><strong>Tables:</strong> <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;col&gt;</code>, <code>&lt;colgroup&gt;</code></li>
+      <li><strong>Embedded:</strong> <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;param&gt;</code>, <code>&lt;canvas&gt;</code>, <code>&lt;svg&gt;</code>, <code>&lt;math&gt;</code></li>
+      <li><strong>Scripting:</strong> <code>&lt;script&gt;</code>, <code>&lt;noscript&gt;</code>, <code>&lt;template&gt;</code>, <code>&lt;slot&gt;</code></li>
     </ul>
   </section>
 
