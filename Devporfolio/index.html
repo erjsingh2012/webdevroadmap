@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dev Journey</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚀 My Developer Portfolio</h1>
+    <button id="toggle-dark">Toggle Dark Mode</button>
+  </header>
+
+  <section id="progress-tracker">
+    <h2>🧠 Skills & Progress</h2>
+    <div id="skills-list"></div>
+    <button onclick="saveProgress()">💾 Save Progress</button>
+  </section>
+
+  <section id="weekly-log">
+    <h2>📅 Weekly Logbook</h2>
+    <textarea id="log-entry" placeholder="Log your weekly progress..."></textarea>
+    <button onclick="saveLog()">Save Log</button>
+    <div id="log-history"></div>
+  </section>
+
+  <section id="projects">
+    <h2>💻 Projects</h2>
+    <ul>
+      <li><a href="#">📘 Book API with PostgreSQL</a></li>
+      <li><a href="#">📝 Todo App with React + Zustand</a></li>
+      <li><a href="#">🔐 Auth System with JWT</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Built by Me | Track & Learn Forever 🚀</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
