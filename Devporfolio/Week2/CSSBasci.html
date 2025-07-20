@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2 – CSS Essentials</title>
+  <style>
+    :root {
+      --primary-color: #0e3b5c;
+      --accent-color: #1e90ff;
+      --bg-color: #f5faff;
+      --font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    .code {
+      background: #eee;
+      padding: 0.5rem;
+      display: inline-block;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    a.project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Week 2 – CSS Essentials</h1>
+    <p>Master the building blocks of layout and styling</p>
+  </header>
+
+ <section id="box-model">
+  <h2>📦 Box Model – Deep Dive</h2>
+  <p>The CSS Box Model is the foundation of layout in web development. Every HTML element is treated as a rectangular box composed of the following areas (from innermost to outermost):</p>
+
+  <ul>
+    <li><strong>Content:</strong> The actual content like text, images, or other elements inside the box.</li>
+    <li><strong>Padding:</strong> The transparent space between the content and the border. Affects the spacing inside the element.</li>
+    <li><strong>Border:</strong> The visible boundary surrounding the padding and content. Can be styled with thickness, color, and border radius.</li>
+    <li><strong>Margin:</strong> The transparent space outside the border. Controls spacing between elements.</li>
+  </ul>
+
+  <h3>📐 Visual Representation</h3>
+  <div style="margin: 20px auto; width: 300px; padding: 1rem; border: 4px solid #1e90ff; background: #e0f7ff; margin-bottom: 2rem;">
+    <div style="padding: 1rem; background: white; text-align: center;">
+      Content
+      <div style="font-size: 0.9em; color: gray;">(text, image, etc.)</div>
+    </div>
+  </div>
+
+  <h3>🧠 Important Concepts</h3>
+  <ul>
+    <li><strong>box-sizing:</strong> defines how width and height are calculated.
+      <br />
+      <span class="code">box-sizing: content-box;</span> → Default: width = content only.
+      <br />
+      <span class="code">box-sizing: border-box;</span> → width = content + padding + border.
+      <br /><em>This is preferred in modern layouts.</em>
+    </li>
+
+    <li>
+      <strong>Collapsing Margins:</strong> Vertical margins between elements may collapse into one. For example, if a paragraph has <span class="code">margin-bottom: 20px</span> and the next has <span class="code">margin-top: 30px</span>, the result is <strong>30px</strong> not 50px.
+    </li>
+
+    <li>
+      <strong>Padding + Border impact layout:</strong> If you're not using <span class="code">border-box</span>, adding padding and border increases the overall size and can break layouts.
+    </li>
+  </ul>
+
+  <h3>💡 Use Cases in Real Projects</h3>
+  <ul>
+    <li>Creating spacing inside buttons using <span class="code">padding</span>.</li>
+    <li>Setting consistent spacing between sections using <span class="code">margin</span>.</li>
+    <li>Visually separating cards or components using <span class="code">border</span>.</li>
+    <li>Centering content inside a box by adjusting <span class="code">padding</span>.</li>
+  </ul>
+
+  <h3>✅ Example CSS</h3>
+  <pre class="code">
+.box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 4px solid #0077cc;
+  margin: 30px auto;
+  background-color: #f9f9f9;
+}
+  </pre>
+
+  <h3>🧪 Quick Tip</h3>
+  <p>To debug the box model, use your browser's DevTools ➜ Elements tab ➜ Hover over element ➜ See padding, border, and margin in color overlays.</p>
+
+  <h3>📚 Learn More</h3>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model" target="_blank">MDN: Introduction to Box Model</a></li>
+    <li><a href="https://css-tricks.com/the-css-box-model/" target="_blank">CSS-Tricks Guide: Box Model</a></li>
+  </ul>
+</section>
+
+
+  <section id="selectors">
+    <h2>🎯 Selectors</h2>
+    <p>
+      Select elements based on type, class, ID, attributes, or structure.
+    </p>
+    <ul>
+      <li><span class="code">element</span>: targets all elements (e.g., <span class="code">p</span>)</li>
+      <li><span class="code">.class</span>: targets class (e.g., <span class="code">.button</span>)</li>
+      <li><span class="code">#id</span>: targets ID (e.g., <span class="code">#header</span>)</li>
+      <li><span class="code">div > p</span>: direct child</li>
+      <li><span class="code">div p</span>: any nested</li>
+    </ul>
+  </section>
+
+  <section id="specificity">
+    <h2>⚖️ Specificity</h2>
+    <p>
+      Determines which rule wins when multiple apply. Order of priority:
+    </p>
+    <ol>
+      <li>Inline styles (most specific)</li>
+      <li>ID selectors</li>
+      <li>Class, pseudo-class, attribute selectors</li>
+      <li>Element selectors</li>
+    </ol>
+    <p>
+      Use <span class="code">!important</span> sparingly to override.
+    </p>
+  </section>
+
+  <section id="colors-fonts">
+    <h2>🎨 Colors, Fonts & Units</h2>
+    <ul>
+      <li><strong>Colors:</strong> Hex (<span class="code">#fff</span>), RGB, HSL</li>
+      <li><strong>Fonts:</strong> <span class="code">font-family: 'Roboto', sans-serif;</span></li>
+      <li><strong>Units:</strong> <span class="code">px</span> (fixed), <span class="code">em/rem</span> (relative), <span class="code">%</span> (percentage)</li>
+    </ul>
+  </section>
+
+  <section id="spacing">
+    <h2>📐 Margins & Padding</h2>
+    <p>
+      Use <span class="code">margin</span> to control spacing *outside* the element.
+      Use <span class="code">padding</span> to control spacing *inside*.
+    </p>
+    <p>
+      Shorthand examples:
+      <span class="code">margin: 10px 20px;</span> → top-bottom 10px, left-right 20px
+    </p>
+  </section>
+
+  <section id="display">
+    <h2>📏 Display Property</h2>
+    <ul>
+      <li><span class="code">block</span>: takes full width, new line (e.g., <span class="code">div</span>)</li>
+      <li><span class="code">inline</span>: no new line, width based on content (e.g., <span class="code">span</span>)</li>
+      <li><span class="code">inline-block</span>: like inline but allows setting width and height</li>
+    </ul>
+  </section>
+
+  <section id="css-resources">
+  <h2>📚 Best Resources to Learn CSS</h2>
+  <p>Whether you're just getting started or mastering animations and layout, these resources will help you level up.</p>
+
+  <h3>🔰 Beginner to Intermediate</h3>
+  <ul>
+    <li>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+        🧭 MDN Web Docs – CSS (Official Reference)
+      </a> – Comprehensive documentation and examples.
+    </li>
+    <li>
+      <a href="https://flukeout.github.io/" target="_blank">
+        🎮 CSS Diner
+      </a> – Learn CSS selectors through a fun game.
+    </li>
+    <li>
+      <a href="https://www.freecodecamp.org/learn" target="_blank">
+        🧠 FreeCodeCamp: Responsive Web Design
+      </a> – Build projects while mastering HTML/CSS/Flexbox.
+    </li>
+    <li>
+      <a href="https://www.youtube.com/kepowob" target="_blank">
+        📺 Kevin Powell YouTube Channel
+      </a> – CSS tutorials, deep dives, and modern tips.
+    </li>
+    <li>
+      <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
+        🎯 CSS Tricks – Flexbox Guide
+      </a> – Visual guide to mastering Flexbox.
+    </li>
+    <li>
+      <a href="https://cssgridgarden.com/" target="_blank">
+        🌱 CSS Grid Garden
+      </a> – Interactive game to learn CSS Grid.
+    </li>
+  </ul>
+
+  <h3>🚀 Intermediate to Advanced</h3>
+  <ul>
+    <li>
+      <a href="https://css-tricks.com" target="_blank">
+        🧩 CSS Tricks
+      </a> – In-depth tips, hacks, and real-world layout patterns.
+    </li>
+    <li>
+      <a href="https://www.joshwcomeau.com/css/interactive-guide-to-css-transitions/" target="_blank">
+        💡 Josh W Comeau's CSS Guides
+      </a> – Visual + interactive learning on tricky CSS topics.
+    </li>
+    <li>
+      <a href="https://www.smashingmagazine.com/category/css" target="_blank">
+        📘 Smashing Magazine – CSS
+      </a> – Advanced layout, performance, and architecture articles.
+    </li>
+    <li>
+      <a href="https://moderncss.dev/" target="_blank">
+        🔬 Modern CSS by Stephanie Eckles
+      </a> – Learn modern, accessible, and semantic CSS.
+    </li>
+    <li>
+      <a href="https://www.30secondsofcode.org/css" target="_blank">
+        ⚡ 30 Seconds of CSS
+      </a> – Useful snippets for real-world UI building.
+    </li>
+  </ul>
+
+  <h3>🧪 Practice & Projects</h3>
+  <ul>
+    <li>
+      <a href="https://www.frontendmentor.io/" target="_blank">
+        🎓 Frontend Mentor
+      </a> – Solve real-life HTML/CSS challenges and get feedback.
+    </li>
+    <li>
+      <a href="https://www.codewell.cc/" target="_blank">
+        💼 Codewell
+      </a> – Improve by building from free Figma-based design files.
+    </li>
+    <li>
+      <a href="https://cssbattle.dev/" target="_blank">
+        ⚔️ CSS Battle
+      </a> – Code golf meets CSS! Compete to recreate designs using minimal code.
+    </li>
+  </ul>
+</section>
+
+
+  <section id="project">
+    <h2>🔧 Mini Project: Responsive Resume Page</h2>
+    <p>Apply what you've learned by creating a responsive resume with:</p>
+    <ul>
+      <li>Box model for layout</li>
+      <li>Fonts, colors, spacing</li>
+      <li>Flexbox for responsiveness</li>
+    </ul>
+    <a class="project-link" href="CSSRoadmap.html" target="_blank">🚀 CSS Roadmap</a>
+  </section>
+
+  <footer>
+    <p>CSS Essentials – Week 2 | Learn more at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN Web Docs</a></p>
+  </footer>
+</body>
+</html>

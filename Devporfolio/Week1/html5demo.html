@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="HTML5 Tags Demo Page">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Tags Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    section { margin-bottom: 40px; }
+    code { background: #f4f4f4; padding: 2px 4px; }
+    hr { margin: 20px 0; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
+  </style>
+  <base href="https://example.com/">
+</head>
+<body>
+
+<header>
+  <h1>🧱 HTML5 Tags Demo Page</h1>
+  <p>Explore each category of HTML5 tags with examples and explanations.</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#sections">Document Sections</a></li>
+    <li><a href="#text">Text Content</a></li>
+    <li><a href="#inline">Inline Formatting</a></li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#media">Links & Media</a></li>
+    <li><a href="#forms">Forms</a></li>
+    <li><a href="#tables">Tables</a></li>
+    <li><a href="#embed">Embedded Content</a></li>
+    <li><a href="#script">Scripting</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="structure">
+  <h2>1. Structure Tags</h2>
+  <p>These define the skeleton of an HTML document: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>.</p>
+</section>
+
+<section id="sections">
+  <h2>2. Document Sections</h2>
+  <article>
+    <header>
+      <h3>Article Header</h3>
+    </header>
+    <p>This is an <code>&lt;article&gt;</code> with its own <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code>.</p>
+    <aside>
+      <p><code>&lt;aside&gt;</code>: Additional side note.</p>
+    </aside>
+    <footer>
+      <p>Written by <address>author@example.com</address></p>
+    </footer>
+  </article>
+</section>
+
+<section id="text">
+  <h2>3. Text Content Tags</h2>
+  <h1>Heading H1</h1>
+  <h2>Heading H2</h2>
+  <h3>Heading H3</h3>
+  <p>This is a paragraph. <br> Line break example.</p>
+  <hr>
+  <pre>
+    Preformatted text
+    Line 1
+      Line 2
+  </pre>
+  <blockquote cite="https://example.com">
+    "This is a blockquote."
+  </blockquote>
+  <p>Inline quote using <q>q tag</q>.</p>
+  <p><abbr title="HyperText Markup Language">HTML</abbr> is the standard language.</p>
+  <p><mark>Marked text</mark> for highlighting.</p>
+  <p><code>console.log("Code")</code> inline code snippet.</p>
+  <p><cite>Book Title</cite> uses cite.</p>
+  <p><time datetime="2025-07-20">Today is July 20, 2025</time></p>
+</section>
+
+<section id="inline">
+  <h2>4. Inline Formatting Tags</h2>
+  <p><strong>Strong text</strong> and <em>emphasized text</em>.</p>
+  <p><small>Small text</small>, <del>deleted</del>, and <ins>inserted</ins> text.</p>
+  <p>H<sub>2</sub>O and X<sup>2</sup></p>
+</section>
+
+<section id="lists">
+  <h2>5. Lists</h2>
+  <ul>
+    <li>Unordered list item</li>
+  </ul>
+  <ol>
+    <li>Ordered list item</li>
+  </ol>
+  <dl>
+    <dt>HTML</dt>
+    <dd>Markup Language</dd>
+  </dl>
+</section>
+
+<section id="media">
+  <h2>6. Links & Media</h2>
+  <p><a href="https://example.com">Visit Example</a></p>
+  <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+  <figure>
+    <img src="https://via.placeholder.com/100" alt="Figure image">
+    <figcaption>Figure caption example</figcaption>
+  </figure>
+  <audio controls>
+    <source src="sample.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  <video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+  <map name="image-map">
+    <area shape="rect" coords="0,0,50,50" href="https://example.com">
+  </map>
+</section>
+
+<section id="forms">
+  <h2>7. Forms & Inputs</h2>
+  <form>
+    <fieldset>
+      <legend>Example Form</legend>
+      <label for="name">Name:</label>
+      <input id="name" name="name" type="text"><br>
+      <label for="comment">Comment:</label>
+      <textarea id="comment" name="comment"></textarea><br>
+      <label for="color">Color:</label>
+      <select id="color" name="color">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+      </select><br>
+      <input list="browsers" name="browser">
+      <datalist id="browsers">
+        <option value="Chrome">
+        <option value="Firefox">
+      </datalist>
+      <button type="submit">Submit</button>
+      <output name="result">Output appears here</output>
+    </fieldset>
+  </form>
+</section>
+
+<section id="tables">
+  <h2>8. Tables</h2>
+  <table>
+    <caption>Sample Table</caption>
+    <colgroup>
+      <col span="1" style="background-color:lightgray">
+      <col>
+    </colgroup>
+    <thead>
+      <tr><th>Item</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Apple</td><td>$1</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>Total</td><td>$1</td></tr>
+    </tfoot>
+  </table>
+</section>
+
+<section id="embed">
+  <h2>9. Embedded Content</h2>
+  <iframe width="300" height="200" src="https://example.com"></iframe>
+  <embed src="sample.pdf" type="application/pdf" width="300" height="200">
+  <object data="sample.pdf" type="application/pdf" width="300" height="200">
+    <param name="autoplay" value="false">
+  </object>
+  <canvas id="myCanvas" width="100" height="100" style="border:1px solid #000;"></canvas>
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="black" fill="yellow" />
+  </svg>
+  <math>
+    <msup><mi>x</mi><mn>2</mn></msup>
+  </math>
+</section>
+
+<section id="script">
+  <h2>10. Scripting & Programmatic Tags</h2>
+  <script>
+    console.log("Script is running");
+  </script>
+  <noscript>This appears if JavaScript is disabled.</noscript>
+  <template id="my-template">
+    <p>This is inside a <code>&lt;template&gt;</code> tag.</p>
+  </template>
+  <slot name="my-slot">Slot fallback content</slot>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 HTML5 Tag Demo</p>
+</footer>
+
+</body>
+</html>

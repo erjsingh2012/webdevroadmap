@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎓 CSS Mastery in 3 Months</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --accent: #3b82f6;
+      --bg: #f0f4f8;
+      --text: #111827;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    section {
+      padding: 2rem 1.5rem;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    h2 {
+      color: var(--primary);
+    }
+
+    h3 {
+      margin-top: 1rem;
+      color: var(--accent);
+    }
+
+    ul {
+      line-height: 1.7;
+      padding-left: 1.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: #e5e7eb;
+    }
+
+    .resource {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎓 CSS Mastery in 3 Months</h1>
+    <p>Step-by-step roadmap to become a CSS Pro</p>
+  </header>
+
+  <section>
+    <h2>📅 Month 1: Fundamentals + Layouts</h2>
+
+    <h3>Week 1: CSS Basics & Selectors</h3>
+    <ul>
+      <li>Syntax, Inline vs Internal vs External CSS</li>
+      <li>Color, Fonts, Units, Margin/Padding</li>
+      <li>Selectors: Universal, Class, ID, Pseudo-classes</li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Reference</a></li>
+    </ul>
+
+    <h3>Week 2: Box Model + Display</h3>
+    <ul>
+      <li>Box Model: margin, border, padding, content</li>
+      <li>Display: block, inline, inline-block</li>
+      <li>box-sizing: border-box</li>
+      <li>Debugging using DevTools</li>
+    </ul>
+
+    <h3>Week 3: Positioning & Z-Index</h3>
+    <ul>
+      <li>static, relative, absolute, fixed, sticky</li>
+      <li>Stacking context & layering</li>
+      <li>z-index behavior</li>
+    </ul>
+
+    <h3>Week 4: Flexbox</h3>
+    <ul>
+      <li>display: flex, flex-direction, align-items, justify-content</li>
+      <li>gap, wrap, grow/shrink/basis</li>
+      <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks Flexbox Guide</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📅 Month 2: Advanced Layouts + Responsiveness</h2>
+
+    <h3>Week 5: CSS Grid</h3>
+    <ul>
+      <li>grid-template-columns, rows, areas</li>
+      <li>auto-fit, minmax, fr unit</li>
+      <li><a href="https://cssgridgarden.com/" target="_blank">Play Grid Garden</a></li>
+    </ul>
+
+    <h3>Week 6: Media Queries + Responsive Design</h3>
+    <ul>
+      <li>breakpoints, mobile-first design</li>
+      <li>relative units, responsive font sizes</li>
+      <li>fluid layouts with % and vw/vh</li>
+    </ul>
+
+    <h3>Week 7: Transitions & Animations</h3>
+    <ul>
+      <li>transition-property, duration, easing</li>
+      <li>keyframes and animation properties</li>
+      <li><a href="https://www.joshwcomeau.com/animation/" target="_blank">Josh Comeau's Animation Guide</a></li>
+    </ul>
+
+    <h3>Week 8: Custom Properties & Calc()</h3>
+    <ul>
+      <li>Using <code>:root</code> and CSS variables</li>
+      <li>calc(), clamp(), and logical properties</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📅 Month 3: Mastery & Real-World Projects</h2>
+
+    <h3>Week 9: Accessibility + Print Styles</h3>
+    <ul>
+      <li>Focus states, contrast, prefers-reduced-motion</li>
+      <li>print media queries</li>
+    </ul>
+
+    <h3>Week 10: Utility-First & BEM Methodology</h3>
+    <ul>
+      <li>Class naming conventions (BEM)</li>
+      <li>Tailwind-style utility classes</li>
+      <li>Atomic vs Semantic CSS debate</li>
+    </ul>
+
+    <h3>Week 11: CSS Architecture & Frameworks</h3>
+    <ul>
+      <li>Organizing CSS: SMACSS, OOCSS</li>
+      <li>Intro to TailwindCSS, Bootstrap</li>
+    </ul>
+
+    <h3>Week 12: Final Project & Portfolio</h3>
+    <ul>
+      <li>Build responsive multi-page website</li>
+      <li>Use Flexbox, Grid, Variables, Animations</li>
+      <li>Add Print styles & Accessibility improvements</li>
+      <li><a href="#" target="_blank">📥 Download Project Template (Coming Soon)</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🔧 Bonus Resources</h2>
+    <ul>
+      <li><a href="https://frontendmentor.io" target="_blank">Frontend Mentor</a> – real-world HTML/CSS challenges</li>
+      <li><a href="https://cssbattle.dev" target="_blank">CSSBattle</a> – practice visual layout precision</li>
+      <li><a href="https://30secondsofcode.org/css" target="_blank">30 Seconds of CSS</a> – fast tips & tricks</li>
+      <li><a href="https://www.smashingmagazine.com/category/css/" target="_blank">Smashing Magazine – CSS</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Designed by ChatGPT | Last updated 2025
+  </footer>
+</body>
+</html>
