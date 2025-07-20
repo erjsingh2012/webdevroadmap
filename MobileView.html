@@ -100,32 +100,37 @@
       padding: 10px 0;
     }
 
-    /* Game board uses CSS Grid */
-    .board {
-      display: grid;
-      grid-template-columns: repeat(11, 1fr); /* 11 equal-width columns */
-      gap: 1px;
-      background: #ffffff;
-      padding: 10px 16px; /* Horizontal padding for mobile spacing */
-      width: 100%;
-      max-width: 500px;
-      aspect-ratio: 1 / 1; /* Makes it square */
-    }
+ /* Game board uses CSS Grid */
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 1px;
+  background: #e0e0e0; /* Light neutral for contrast */
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+}
 
-    /* Each tile in board */
-    .tile {
-      width: 100%;
-      aspect-ratio: 1 / 1; /* Keeps square shape */
-      font-size: 0.7rem;
-      font-weight: bold;
-      color: white;
-      background: #4CAF50;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      text-transform: uppercase;
-    }
+/* Each tile in board */
+.tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #66bb6a, #43a047); /* Green gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.2),
+              0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease;
+}
 
     /* Special tiles with unique colors */
     .TW { background: #f44336; } /* Triple Word */
