@@ -81,7 +81,7 @@
       text-align: center;
       padding: 1rem;
       color: #000;
-      transition: outline 0.3s;
+      transition: outline 0.3s, opacity 0.2s;
       position: relative;
       z-index: 2;
     }
@@ -103,7 +103,7 @@
 
     .controls {
       position: fixed;
-      top: 80%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 999;
@@ -216,17 +216,18 @@
       content.style.height = config.height;
       unitName.innerHTML = config.text;
 
-      // Highlight selected button
-      document.querySelectorAll('.button').forEach(b => b.classList.remove('selected'));
-      const active = document.getElementById("btn-" + unit);
-      if (active) active.classList.add("selected");
-
-      // Force reflow with opacity toggle
+      // Force reflow
+      void content.offsetHeight;
       content.style.opacity = "0.99";
       setTimeout(() => {
         content.style.opacity = "1";
         updatePixelDisplay();
-      }, 20);
+      }, 30);
+
+      // Update button selection
+      document.querySelectorAll('.button').forEach(b => b.classList.remove('selected'));
+      const active = document.getElementById("btn-" + unit);
+      if (active) active.classList.add("selected");
     }
 
     function toggleOutline() {
