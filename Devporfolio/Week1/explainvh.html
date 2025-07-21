@@ -1,0 +1,147 @@
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { WebView } from "react-native-webview";
+
+export default function Index() {
+  const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Viewport Units Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+    }
+
+    .box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      color: #000;
+    }
+
+    .debug-outline {
+      outline: 3px dashed red;
+    }
+
+    #vh-box { height: 100vh; background-color: #ffc; }
+    #dvh-box { height: 100dvh; background-color: #cfc; }
+    #svh-box { height: 100svh; background-color: #ccf; }
+    #lvh-box { height: 100lvh; background-color: #fcc; }
+    #sh-box { height: 100sh; background-color: #eef; }
+
+    .controls {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .button {
+      background: #333;
+      color: white;
+      padding: 8px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="content" class="box" style="height: 100vh; background-color: #ffc;">
+    <div>
+      100vh — Legacy Viewport Height<br/>
+      <small>Doesn't adjust for dynamic UI like address bars or keyboard</small>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="button" onclick="showUnit('vh')">vh</div>
+    <div class="button" onclick="showUnit('dvh')">dvh</div>
+    <div class="button" onclick="showUnit('svh')">svh</div>
+    <div class="button" onclick="showUnit('lvh')">lvh</div>
+    <div class="button" onclick="showUnit('sh')">sh</div>
+    <div class="button" onclick="toggleOutline()">Outline</div>
+  </div>
+
+  <script>
+    const content = document.getElementById("content");
+
+    const unitConfig = {
+      vh: {
+        height: "100vh",
+        bg: "#ffc",
+        text: "100vh — Legacy Viewport Height<br/><small>Doesn't adjust for dynamic UI like address bars or keyboard</small>"
+      },
+      dvh: {
+        height: "100dvh",
+        bg: "#cfc",
+        text: "100dvh — Dynamic Viewport Height<br/><small>Updates when UI changes (keyboard, address bar)</small>"
+      },
+      svh: {
+        height: "100svh",
+        bg: "#ccf",
+        text: "100svh — Small Viewport Height<br/><small>Minimum size when browser chrome is visible</small>"
+      },
+      lvh: {
+        height: "100lvh",
+        bg: "#fcc",
+        text: "100lvh — Large Viewport Height<br/><small>Maximum size when UI is hidden</small>"
+      },
+      sh: {
+        height: "100sh",
+        bg: "#eef",
+        text: "100sh — 1% of Small Viewport Height<br/><small>Used for consistent baseline unit</small>"
+      }
+    };
+
+    function showUnit(unit) {
+      const config = unitConfig[unit];
+      content.style.height = config.height;
+      content.style.backgroundColor = config.bg;
+      content.innerHTML = "<div>" + config.text + "</div>";
+    }
+
+    function toggleOutline() {
+      content.classList.toggle("debug-outline");
+    }
+  </script>
+</body>
+</html>
+`;
+
+  return (
+    <View style={styles.container}>
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: htmlContent }}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        bounces={false}
+        overScrollMode="never"
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
