@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Viewport Units Demo</title>
+  <title>Viewport Units Debugger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <style>
     html, body {
@@ -13,6 +13,7 @@
       overflow: hidden;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
       -webkit-text-size-adjust: none;
+      background: white;
     }
 
     #color-stripes {
@@ -29,7 +30,6 @@
       height: 10%;
     }
 
-    /* Alternating colors for visual separation */
     .stripe:nth-child(1)  { background: #fce4ec; }
     .stripe:nth-child(2)  { background: #f8bbd0; }
     .stripe:nth-child(3)  { background: #f48fb1; }
@@ -72,7 +72,7 @@
 
     #content {
       width: 100%;
-      height: 100%;
+      height: 100vh;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -216,18 +216,26 @@
       content.style.height = config.height;
       unitName.innerHTML = config.text;
 
+      // Highlight selected button
       document.querySelectorAll('.button').forEach(b => b.classList.remove('selected'));
       const active = document.getElementById("btn-" + unit);
       if (active) active.classList.add("selected");
 
-      requestAnimationFrame(() => {
-        const px = content.getBoundingClientRect().height.toFixed(2);
-        pixelDisplay.innerHTML = "Height in px: <strong>" + px + "px</strong>";
-      });
+      // Force reflow with opacity toggle
+      content.style.opacity = "0.99";
+      setTimeout(() => {
+        content.style.opacity = "1";
+        updatePixelDisplay();
+      }, 20);
     }
 
     function toggleOutline() {
       content.classList.toggle("debug-outline");
+    }
+
+    function updatePixelDisplay() {
+      const px = content.getBoundingClientRect().height.toFixed(2);
+      pixelDisplay.innerHTML = "Height in px: <strong>" + px + "px</strong>";
     }
 
     function addMarkers() {
@@ -246,7 +254,15 @@
       }
     }
 
+    function setupResizeListener() {
+      const observer = new ResizeObserver(() => {
+        updatePixelDisplay();
+      });
+      observer.observe(content);
+    }
+
     addMarkers();
+    setupResizeListener();
     showUnit("vh");
   </script>
 </body>
